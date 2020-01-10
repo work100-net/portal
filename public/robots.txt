@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /redirect
+Disallow: /redirect:/path*
+Disallow: /404
+Disallow: /401
+
+Sitemap: http://www.work100.net/sitemap.xml
