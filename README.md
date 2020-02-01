@@ -134,6 +134,8 @@
 
 第三方平台|博主链接
 :---:|:---:
-**简书**|<a href="https://www.jianshu.com/u/986bbb81f2dc" target="_blank">光束云</a>
 **CSDN**|<a href="https://me.csdn.net/m0_46206954" target="_blank">光束云</a>
 **博客园**|<a href="https://www.cnblogs.com/liuxiaojun/" target="_blank">光束云</a>
+**简书**|<a href="https://www.jianshu.com/u/986bbb81f2dc" target="_blank">光束云</a>
+**今日头条**|<a href="https://www.toutiao.com/c/user/52905992984/#mid=1656407917031432" target="_blank">光束云</a>
+**B站**|<a href="https://space.bilibili.com/386961393" target="_blank">光束云</a>
