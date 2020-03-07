@@ -195,9 +195,19 @@
 #### 第三方学习
 
 第三方平台|博主链接
-:---:|:---:
+:---:|:---
+**阿里云(开发者社区)**|<a href="https://developer.aliyun.com/profile/u4bwvnpzignzc?spm=a2c6h.12873639.0.0.7fae5d38PiWUHY" target="_blank">光束云</a>
+**腾讯云(云<sup>+</sup>社区)**|<a href="https://cloud.tencent.com/developer/user/6962097" target="_blank">光束云</a>
 **CSDN**|<a href="https://me.csdn.net/m0_46206954" target="_blank">光束云</a>
 **博客园**|<a href="https://www.cnblogs.com/liuxiaojun/" target="_blank">光束云</a>
 **简书**|<a href="https://www.jianshu.com/u/986bbb81f2dc" target="_blank">光束云</a>
-**今日头条**|<a href="https://www.toutiao.com/c/user/52905992984/#mid=1656407917031432" target="_blank">光束云</a>
 **B站**|<a href="https://space.bilibili.com/386961393" target="_blank">光束云</a>
+
+
+-------------------
+
+> 如果对课程内容感兴趣，可以扫码关注我们的 `公众号` 或 `QQ群`，及时关注我们的课程更新
+
+<img src="http://contents.work100.net/images/about/contact/wechat_dingyuehao.jpg" width="160" />
+
+<img src="http://contents.work100.net/images/about/contact/qq_group_qrcode.jpg" width="160" />
