@@ -159,6 +159,7 @@
         - [新增账户](http://www.work100.net/training/monolithic-project-iot-cloud-admin-manager-add.html)
         - [编辑账户](http://www.work100.net/training/monolithic-project-iot-cloud-admin-manager-edit.html)
         - [删除账户](http://www.work100.net/training/monolithic-project-iot-cloud-admin-manager-delete.html)
+        - [搜索功能](http://www.work100.net/training/monolithic-project-iot-cloud-admin-manager-search.html)
     - [05.租户管理](http://www.work100.net/training/monolithic-project-iot-cloud-admin-tenant.html)
     - [06.租户账号管理](http://www.work100.net/training/monolithic-project-iot-cloud-admin-tenant-user.html)
     
@@ -190,18 +191,6 @@
 - 物联网平台构建
 
 - SaaS云服务构建
-
-
-#### 第三方学习
-
-第三方平台|博主链接
-:---:|:---
-**阿里云(开发者社区)**|<a href="https://developer.aliyun.com/profile/u4bwvnpzignzc?spm=a2c6h.12873639.0.0.7fae5d38PiWUHY" target="_blank">光束云</a>
-**腾讯云(云<sup>+</sup>社区)**|<a href="https://cloud.tencent.com/developer/user/6962097" target="_blank">光束云</a>
-**CSDN**|<a href="https://me.csdn.net/m0_46206954" target="_blank">光束云</a>
-**博客园**|<a href="https://www.cnblogs.com/liuxiaojun/" target="_blank">光束云</a>
-**简书**|<a href="https://www.jianshu.com/u/986bbb81f2dc" target="_blank">光束云</a>
-**B站**|<a href="https://space.bilibili.com/386961393" target="_blank">光束云</a>
 
 
 -------------------
