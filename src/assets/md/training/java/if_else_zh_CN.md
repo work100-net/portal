@@ -1,8 +1,19 @@
 
 # <a id="条件语句" style="padding-top: 60px;">条件语句</a>
 
-一个 if 语句包含一个布尔表达式和一条或多条语句。
+序号|文内章节|视频
+:---:|:---|:---
+1|[概述](#概述)|
+2|[if...else语句](#if...else语句)|
+3|[if...else...if...else语句](#if...else...if...else语句)|
+4|[嵌套的if…else语句](#嵌套的if…else语句)|
 
+请参照如上`章节导航`进行阅读
+
+
+## <a id="概述" style="padding-top: 60px;">1.概述</a>
+
+一个 `if` 语句包含一个布尔表达式和一条或多条语句。
 
 #### 语法
 
@@ -15,12 +26,12 @@ if(布尔表达式)
 }
 ```
 
-如果布尔表达式的值为 true，则执行 if 语句中的代码块，否则执行 if 语句块后面的代码。
+如果布尔表达式的值为 `true`，则执行 `if` 语句中的代码块，否则执行 `if` 语句块后面的代码。
 
 ```java
 public class Test {
  
-   public static void main(String args[]){
+   public static void main(String[] args){
       int x = 10;
  
       if( x < 20 ){
@@ -37,13 +48,13 @@ public class Test {
 ```
 
 
-## <a id="if...else语句" style="padding-top: 60px;">if...else语句</a>
+## <a id="if...else语句" style="padding-top: 60px;">2.if...else语句</a>
 
-if 语句后面可以跟 else 语句，当 if 语句的布尔表达式值为 false 时，else 语句块会被执行。
+`if` 语句后面可以跟 `else` 语句，当 `if` 语句的布尔表达式值为 `false` 时，`else` 语句块会被执行。
 
 #### 语法
 
-if…else 的用法如下：
+`if…else` 的用法如下：
 
 ```cmd
 if(布尔表达式){
@@ -58,7 +69,7 @@ if(布尔表达式){
 ```java
 public class Test {
  
-   public static void main(String args[]){
+   public static void main(String[] args){
       int x = 30;
  
       if( x < 20 ){
@@ -77,19 +88,19 @@ public class Test {
 ```
 
 
-## <a id="if...else if...else语句" style="padding-top: 60px;">if...else if...else语句</a>
+## <a id="if...else...if...else语句" style="padding-top: 60px;">3.if...else...if...else语句</a>
 
-if 语句后面可以跟 else if…else 语句，这种语句可以检测到多种可能的情况。
+`if` 语句后面可以跟 `else if`…`else` 语句，这种语句可以检测到多种可能的情况。
 
-使用 if，else if，else 语句的时候，需要注意下面几点：
+使用 `if`，`else if`，`else` 语句的时候，需要注意下面几点：
 
-if 语句至多有 1 个 else 语句，else 语句在所有的 else if 语句之后。
-if 语句可以有若干个 else if 语句，它们必须在 else 语句之前。
-一旦其中一个 else if 语句检测为 true，其他的 else if 以及 else 语句都将跳过执行。
+`if` 语句至多有 1 个 `else` 语句，`else` 语句在所有的 `else if` 语句之后。
+`if` 语句可以有若干个 `else if` 语句，它们必须在 `else` 语句之前。
+一旦其中一个 `else if` 语句检测为 `true`，其后的 `else if` 以及 `else` 语句都将跳过执行。
 
 #### 语法
 
-if...else 语法格式如下:
+`if...else` 语法格式如下:
 
 ```cmd
 if(布尔表达式 1){
@@ -108,7 +119,7 @@ if(布尔表达式 1){
 
 ```java
 public class Test {
-   public static void main(String args[]){
+   public static void main(String[] args){
       int x = 30;
  
       if( x == 10 ){
@@ -132,13 +143,13 @@ Value of X is 30
 ```
 
 
-## <a id="嵌套的if…else语句" style="padding-top: 60px;">嵌套的if…else语句</a>
+## <a id="嵌套的if…else语句" style="padding-top: 60px;">4.嵌套的if…else语句</a>
 
-使用嵌套的 if…else 语句是合法的。也就是说你可以在另一个 if 或者 else if 语句中使用 if 或者 else if 语句。
+使用嵌套的 `if…else` 语句是合法的。也就是说你可以在另一个 `if` 或者 `else if` 语句中使用 `if` 或者 `else if` 语句。
 
 #### 语法
 
-嵌套的 if…else 语法格式如下：
+嵌套的 `if…else` 语法格式如下：
 
 ```cmd
 if(布尔表达式 1){
@@ -149,14 +160,14 @@ if(布尔表达式 1){
 }
 ```
 
-你可以像 if 语句一样嵌套 else if...else。
+你可以像 `if` 语句一样嵌套 `else if`...`else`。
 
 #### 实例
 
 ```java
 public class Test {
  
-   public static void main(String args[]){
+   public static void main(String[] args){
       int x = 30;
       int y = 10;
  
@@ -175,8 +186,19 @@ public class Test {
 X = 30 and Y = 10
 ```
 
+
+
+#### 源码获取
+
+实例源码已经托管到如下地址：
+
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/ifelse" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/ifelse</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/ifelse" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/ifelse</a>
+
+
 ----------
 
-上一篇：<a href="/training/java-loop.html">循环结构</a>
+上一篇：[循环结构](/training/java-loop.html "循环结构 - 语言基础 - Java入门 - 免费课程 - 光束云 - work100.net")
 
-下一篇：<a href="/training/java-switch-case.html">switch_case</a>
+下一篇：[switch_case](/training/java-switch-case.html "switch_case - 语言基础 - Java入门 - 免费课程 - 光束云 - work100.net")

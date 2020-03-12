@@ -2,14 +2,23 @@
 # <a id="重写与重载" style="padding-top: 60px;">重写与重载</a>
 
 
-## <a id="重写(Override)" style="padding-top: 60px;">重写(Override)</a>
+序号|文内章节|视频
+:---:|:---|:---
+1|[重写(Override)](#重写(Override))|
+2|[重载(Overload)](#重载(Overload))|
+3|[重写与重载的区别](#重写与重载的区别)|
+4|[总结](#总结)|
 
+请参照如上`章节导航`进行阅读
+
+
+## <a id="重写(Override)" style="padding-top: 60px;">1.重写(Override)</a>
 
 重写是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。即外壳不变，核心重写！
 
 重写的好处在于子类可以根据需要，定义特定于自己的行为。 也就是说子类能够根据需要实现父类的方法。
 
-重写方法不能抛出新的检查异常或者比被重写方法申明更加宽泛的异常。例如： 父类的一个方法申明了一个检查异常 IOException，但是在重写这个方法的时候不能抛出 Exception 异常，因为 Exception 是 IOException 的父类，只能抛出 IOException 的子类异常。
+重写方法不能抛出新的检查异常或者比被重写方法申明更加宽泛的异常。例如： 父类的一个方法申明了一个检查异常 `IOException`，但是在重写这个方法的时候不能抛出 `Exception` 异常，因为 `Exception` 是 `IOException` 的父类，只能抛出 `IOException` 的子类异常。
 
 在面向对象原则里，重写意味着可以重写任何现有方法。实例如下：
 
@@ -28,7 +37,7 @@ class Dog extends Animal{
 }
  
 public class TestDog{
-   public static void main(String args[]){
+   public static void main(String[] args){
       Animal a = new Animal(); // Animal 对象
       Animal b = new Dog(); // Dog 对象
  
@@ -47,13 +56,13 @@ public class TestDog{
 狗可以跑和走
 ```
 
-在上面的例子中可以看到，尽管 b 属于 Animal 类型，但是它运行的是 Dog 类的 move方法。
+在上面的例子中可以看到，尽管 `b` 属于 `Animal` 类型，但是它运行的是 `Dog` 类的 `move()` 方法。
 
 这是由于在编译阶段，只是检查参数的引用类型。
 
 然而在运行时，Java 虚拟机(JVM)指定对象的类型并且运行该对象的方法。
 
-因此在上面的例子中，之所以能编译成功，是因为 Animal 类中存在 move 方法，然而运行时，运行的是特定对象的方法。
+因此在上面的例子中，之所以能编译成功，是因为 `Animal` 类中存在 `move()` 方法，然而运行时，运行的是特定对象的方法。
 
 思考以下例子：
 
@@ -74,7 +83,7 @@ class Dog extends Animal{
 }
  
 public class TestDog{
-   public static void main(String args[]){
+   public static void main(String[] args){
       Animal a = new Animal(); // Animal 对象
       Animal b = new Dog(); // Dog 对象
  
@@ -96,38 +105,28 @@ location: class Animal
                  ^
 ```
 
-该程序将抛出一个编译错误，因为b的引用类型Animal没有bark方法。
+该程序将抛出一个编译错误，因为b的引用类型 `Animal` 没有 `bark` 方法。
 
 
 
 ### <a id="方法的重写规则" style="padding-top: 60px;">方法的重写规则</a>
 
 - 参数列表必须完全与被重写方法的相同。
-
 - 返回类型与被重写方法的返回类型可以不相同，但是必须是父类返回值的派生类（java5 及更早版本返回类型要一样，java7 及更高版本可以不同）。
-
-- 访问权限不能比父类中被重写的方法的访问权限更低。例如：如果父类的一个方法被声明为 public，那么在子类中重写该方法就不能声明为 protected。
-
+- 访问权限不能比父类中被重写的方法的访问权限更低。例如：如果父类的一个方法被声明为 `public`，那么在子类中重写该方法就不能声明为 `protected`。
 - 父类的成员方法只能被它的子类重写。
-
-- 声明为 final 的方法不能被重写。
-
-- 声明为 static 的方法不能被重写，但是能够被再次声明。
-
-- 子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为 private 和 final 的方法。
-
-- 子类和父类不在同一个包中，那么子类只能够重写父类的声明为 public 和 protected 的非 final 方法。
-
+- 声明为 `final` 的方法不能被重写。
+- 声明为 `static` 的方法不能被重写，但是能够被再次声明。
+- 子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为 `private` 和 `final` 的方法。
+- 子类和父类不在同一个包中，那么子类只能够重写父类的声明为 `public` 和 `protected` 的非 `final` 方法。
 - 重写的方法能够抛出任何非强制异常，无论被重写的方法是否抛出异常。但是，重写的方法不能抛出新的强制性异常，或者比被重写方法声明的更广泛的强制性异常，反之则可以。
-
 - 构造方法不能被重写。
-
 - 如果不能继承一个方法，则不能重写这个方法。
 
 
 ### <a id="Super关键字的使用" style="padding-top: 60px;">Super关键字的使用</a>
 
-当需要在子类中调用父类的被重写方法时，要使用 super 关键字。
+当需要在子类中调用父类的被重写方法时，要使用 `super` 关键字。
 
 
 ```java
@@ -145,7 +144,7 @@ class Dog extends Animal{
 }
  
 public class TestDog{
-   public static void main(String args[]){
+   public static void main(String[] args){
  
       Animal b = new Dog(); // Dog 对象
       b.move(); //执行 Dog类的方法
@@ -163,10 +162,10 @@ public class TestDog{
 ```
 
 
-## <a id="重载(Overload)" style="padding-top: 60px;">重载(Overload)</a>
+## <a id="重载(Overload)" style="padding-top: 60px;">2.重载(Overload)</a>
 
 
-重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。
+重载(`overloading`) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。
 
 每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。
 
@@ -176,15 +175,10 @@ public class TestDog{
 ### <a id="重载规则" style="padding-top: 60px;">重载规则</a>
 
 - 被重载的方法必须改变参数列表(参数个数或类型不一样)
-
 - 被重载的方法可以改变返回类型
-
-- 被重载的方法可以改变访问修饰符
-
+- 被重载的方法可以改变访问修饰
 - 被重载的方法可以声明新的或更广的检查异常
-
 - 方法能够在同一个类中或者在一个子类中被重载
-
 - 无法以返回值类型作为重载函数的区分标准
 
 
@@ -223,7 +217,7 @@ public class Overloading {
 ```
 
 
-## <a id="重写与重载之间的区别" style="padding-top: 60px;">重写与重载之间的区别</a>
+## <a id="重写与重载的区别" style="padding-top: 60px;">3.重写与重载的区别</a>
 
 区别点|重载方法|重写方法
 :-|:-|:-
@@ -234,26 +228,30 @@ public class Overloading {
 
 
 
-## <a id="总结" style="padding-top: 60px;">总结</a>
+## <a id="总结" style="padding-top: 60px;">4.总结</a>
 
-方法的重写(Overriding)和重载(Overloading)是java多态性的不同表现，重写是父类与子类之间多态性的一种表现，重载可以理解成多态的具体表现形式。
+方法的重写(`Overriding`)和重载(`Overloading`)是java多态性的不同表现，重写是父类与子类之间多态性的一种表现，重载可以理解成多态的具体表现形式。
 
-- (1)方法重载是一个类中定义了多个方法名相同,而他们的参数的数量不同或数量相同而类型和次序不同,则称为方法的重载(Overloading)
-
-- (2)方法重写是在子类存在方法与父类的方法的名字相同,而且参数的个数与类型一样,返回值也一样的方法,就称为重写(Overriding)
-
-- (3)方法重载是一个类的多态性表现,而方法重写是子类与父类的一种多态性表现
-
-
+- 方法重载是一个类中定义了多个方法名相同,而他们的参数的数量不同或数量相同而类型和次序不同,则称为方法的重载(`Overloading`)
+- 方法重写是在子类存在方法与父类的方法的名字相同,而且参数的个数与类型一样,返回值也一样的方法,就称为重写(`Overriding`)
+- 方法重载是一个类的多态性表现,而方法重写是子类与父类的一种多态性表现
 
 <img src="http://contents.work100.net/images/training/java/override-overload/override-overload-1.jpg" style="max-width: 98%" />
-
 
 <img src="http://contents.work100.net/images/training/java/override-overload/override-overload-2.jpg" style="max-width: 98%" />
 
 
+#### 源码获取
+
+实例源码已经托管到如下地址：
+
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/overrideoverload" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/overrideoverload</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/overrideoverload" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/overrideoverload</a>
+
+
 ----------
 
-上一篇：<a href="/training/java-inheritance.html">继承</a>
+上一篇：[继承](/training/java-inheritance.html "继承 - 面向对象 - Java入门 - 免费课程 - 光束云 - work100.net")
 
-下一篇：<a href="/training/java-polymorphism.html">多态</a>
+下一篇：[多态](/training/java-polymorphism.html "多态 - 面向对象 - Java入门 - 免费课程 - 光束云 - work100.net")

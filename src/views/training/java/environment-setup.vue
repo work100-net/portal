@@ -7,8 +7,13 @@
         </Sticky>
       </el-aside>
       <el-main>
-        <LeftMenu v-if="device==='mobile'" />
+        <right-panel v-if="device==='mobile'">
+          <div class="drawer-container">
+            <LeftMenu v-if="device==='mobile'" />
+          </div>
+        </right-panel>
         <environment_setup_zh_CN class="markdown-body" />
+        <follow_me_zh_CN class="markdown-body" />
       </el-main>
     </el-container>
   </div>
@@ -19,10 +24,12 @@ import { mapState } from 'vuex'
 import Sticky from '@/components/Sticky'
 import LeftMenu from './components/LeftMenu'
 import environment_setup_zh_CN from '@/assets/md/training/java/environment_setup_zh_CN.md'
+import follow_me_zh_CN from '@/assets/md/about/follow_me_zh_CN.md'
+import RightPanel from '@/components/RightPanel'
 
 export default {
   name: 'TrainingJavaEnvironmentSetup',
-  components: { Sticky, LeftMenu, environment_setup_zh_CN },
+  components: { RightPanel, Sticky, LeftMenu, environment_setup_zh_CN, follow_me_zh_CN },
   computed: {
     ...mapState({
       sidebar: state => state.app.sidebar,

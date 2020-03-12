@@ -7,7 +7,11 @@
         </Sticky>
       </el-aside>
       <el-main>
-        <LeftMenu v-if="device==='mobile'" />
+        <right-panel v-if="device==='mobile'">
+          <div class="drawer-container">
+            <LeftMenu />
+          </div>
+        </right-panel>
         <index_zh_CN class="markdown-body" />
         <team_zh_CN class="markdown-body" />
         <contact_zh_CN class="markdown-body" />
@@ -23,10 +27,11 @@ import LeftMenu from './components/LeftMenu'
 import index_zh_CN from '@/assets/md/about/index_zh_CN.md'
 import team_zh_CN from '@/assets/md/about/team_zh_CN.md'
 import contact_zh_CN from '@/assets/md/about/contact_zh_CN.md'
+import RightPanel from '@/components/RightPanel'
 
 export default {
   name: 'AboutTeam',
-  components: { Sticky, LeftMenu, index_zh_CN, team_zh_CN, contact_zh_CN },
+  components: { RightPanel, Sticky, LeftMenu, index_zh_CN, team_zh_CN, contact_zh_CN },
   computed: {
     ...mapState({
       sidebar: state => state.app.sidebar,

@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container">
     <div v-if="device==='mobile'" class="hamburger-container" @click="toggleSideBar">
-      <el-icon class="el-icon-s-unfold" />
+      <i class="el-icon-menu" />
     </div>
     <div class="logo-container">
       <router-link key="collapse" class="logo-link" to="/">
@@ -28,13 +28,14 @@
         <el-menu-item index="/solutions/index.html">解决方案</el-menu-item>
         <el-submenu index="/training">
           <template slot="title">免费课程</template>
-          <el-menu-item index="/training/java">Java 教程</el-menu-item>
-          <el-menu-item index="/training/micro-services">微服务开发</el-menu-item>
+          <el-menu-item index="/training/index">开课导读</el-menu-item>
+          <el-menu-item index="/training/java">Java入门</el-menu-item>
+          <el-menu-item index="/training/micro-services">Java微服务</el-menu-item>
         </el-submenu>
         <el-submenu index="/tools">
-          <template slot="title">常用工具</template>
+          <template slot="title">代码和工具</template>
           <el-menu-item index="/tools/code.html">代码片段</el-menu-item>
-          <el-menu-item index="/tools/json-formatter.html">Json 格式化</el-menu-item>
+          <el-menu-item index="/tools/tool.html">常用工具</el-menu-item>
         </el-submenu>
       </el-menu>
     </div>

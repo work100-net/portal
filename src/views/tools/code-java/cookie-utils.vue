@@ -7,9 +7,13 @@
         </Sticky>
       </el-aside>
       <el-main>
-        <LeftMenu v-if="device==='mobile'" />
-        <index_zh_CN class="markdown-body" />
-        <java_zh_CN class="markdown-body" />
+        <right-panel v-if="device==='mobile'">
+          <div class="drawer-container">
+            <LeftMenu />
+          </div>
+        </right-panel>
+        <cookie_utils_zh_CN class="markdown-body" />
+        <follow_me_zh_CN class="markdown-body" />
       </el-main>
     </el-container>
   </div>
@@ -18,13 +22,14 @@
 <script>
 import { mapState } from 'vuex'
 import Sticky from '@/components/Sticky'
-import LeftMenu from './components/LeftMenu'
-import index_zh_CN from '@/assets/md/tools/code/index_zh_CN.md'
-import java_zh_CN from '@/assets/md/tools/code/java_zh_CN.md'
+import LeftMenu from '../components/LeftMenu'
+import cookie_utils_zh_CN from '@/assets/md/tools/code-java/cookie_utils_zh_CN.md'
+import follow_me_zh_CN from '@/assets/md/about/follow_me_zh_CN.md'
+import RightPanel from '@/components/RightPanel'
 
 export default {
-  name: 'ToolsCode',
-  components: { Sticky, LeftMenu, index_zh_CN, java_zh_CN },
+  name: 'ToolsCodeJavaCookieUtils',
+  components: { RightPanel, Sticky, LeftMenu, cookie_utils_zh_CN, follow_me_zh_CN },
   computed: {
     ...mapState({
       sidebar: state => state.app.sidebar,
@@ -35,11 +40,11 @@ export default {
     meta: [
       {
         name: 'description',
-        content: '获取特定的源码片段'
+        content: 'Java 中 Cookie 常用操作工具类'
       },
       {
         name: 'keywords',
-        content: 'Java、源码、片段、加密、解密、密码、Jackson、工具'
+        content: 'Java、代码片段、Cookie、Utils、工具类'
       },
       {
         name: 'robots',
@@ -57,7 +62,7 @@ export default {
     link: [
       {
         rel: 'assets',
-        href: process.env.VUE_APP_WWW_URL + '/tools/code'
+        href: process.env.VUE_APP_WWW_URL + '/tools/code-java/cookie-utils.html'
       }
     ]
   }

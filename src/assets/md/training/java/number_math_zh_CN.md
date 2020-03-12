@@ -1,7 +1,20 @@
 
 # <a id="Number和Math类" style="padding-top: 60px;">Number和Math类</a>
 
-一般地，当需要使用数字的时候，我们通常使用内置数据类型，如：byte、int、long、double 等。
+
+序号|文内章节|视频
+:---:|:---|:---
+1|[概述](#概述)|
+2|[Math类](#Math类)|
+3|[Number和Math类方法](#Number和Math类方法)|
+4|[Math的floor,round和ceil方法实例比较](#Math的floor,round和ceil方法实例比较)|
+
+请参照如上`章节导航`进行阅读
+
+
+## <a id="概述" style="padding-top: 60px;">1.概述</a>
+
+一般地，当需要使用数字的时候，我们通常使用内置数据类型，如：`byte`、`int`、`long`、`double` 等。
 
 ```java
 int a = 5000;
@@ -13,17 +26,16 @@ byte c = 0x4a;
 
 所有的包装类（**Integer**、**Long**、**Byte**、**Double**、**Float**、**Short**）都是抽象类 Number 的子类。
 
-
 <img src="http://contents.work100.net/images/training/java/number-math/number1.jpg" style="max-width: 98%" />
 
-这种由编译器特别支持的包装称为装箱，所以当内置数据类型被当作对象使用的时候，编译器会把内置类型装箱为包装类。相似的，编译器也可以把一个对象拆箱为内置类型。Number 类属于 java.lang 包。
+这种由编译器特别支持的包装称为装箱，所以当内置数据类型被当作对象使用的时候，编译器会把内置类型装箱为包装类。相似的，编译器也可以把一个对象拆箱为内置类型。Number 类属于 `java.lang` 包。
 
 下面是一个使用 Integer 对象的实例：
 
 ```java
 public class Test{
  
-   public static void main(String args[]){
+   public static void main(String[] args){
       Integer x = 5;
       x =  x + 10;
       System.out.println(x); 
@@ -37,14 +49,14 @@ public class Test{
 15
 ```
 
-当 x 被赋为整型值时，由于x是一个对象，所以编译器要对x进行装箱。然后，为了使x能进行加运算，所以要对x进行拆箱。
+当 `x` 被赋为整型值时，由于 `x` 是一个对象，所以编译器要对x进行装箱。然后，为了使 `x` 能进行加运算，所以要对 `x` 进行拆箱。
 
 
-# <a id="Java的Math类" style="padding-top: 60px;">Java的Math类</a>
+## <a id="Math类" style="padding-top: 60px;">2.Math类</a>
 
 Java 的 Math 包含了用于执行基本数学运算的属性和方法，如初等指数、对数、平方根和三角函数。
 
-Math 的方法都被定义为 static 形式，通过 Math 类可以在主函数中直接调用。
+Math 的方法都被定义为 `static` 形式，通过 Math 类可以在主函数中直接调用。
 
 
 ```java
@@ -75,44 +87,44 @@ public class Test {
 
 Number和Math类方法
 
-# <a id="Number和Math类方法" style="padding-top: 60px;">Number和Math类方法</a>
+## <a id="Number和Math类方法" style="padding-top: 60px;">3.Number和Math类方法</a>
 
 下面的表中列出的是 Number & Math 类常用的一些方法：
 
 序号|方法与描述
 :-|:-
-1 |xxxValue() 将 Number 对象转换为xxx数据类型的值并返回。
-2 |compareTo() 将number对象与参数比较。
-3 |equals() 判断number对象是否与参数相等。
-4 |valueOf() 返回一个 Number 对象指定的内置数据类型
-5 |toString() 以字符串形式返回值。
-6 |parseInt() 将字符串解析为int类型。
-7 |abs() 返回参数的绝对值。
-8 |ceil() 返回大于等于( >= )给定参数的的最小整数，类型为双精度浮点型。
-9 |floor() 返回小于等于（<=）给定参数的最大整数 。
-10 |rint() 返回与参数最接近的整数。返回类型为double。
-11 |round() 它表示四舍五入，算法为 Math.floor(x+0.5)，即将原来的数字加上 0.5 后再向下取整，所以，Math.round(11.5) 的结果为12，Math.round(-11.5) 的结果为-11。
-12 |min() 返回两个参数中的最小值。
-13 |max() 返回两个参数中的最大值。
-14 |exp() 返回自然数底数e的参数次方。
-15 |log() 返回参数的自然数底数的对数值。
-16 |pow() 返回第一个参数的第二个参数次方。
-17 |sqrt() 求参数的算术平方根。
-18 |sin() 求指定double类型参数的正弦值。
-19 |cos() 求指定double类型参数的余弦值。
-20 |tan() 求指定double类型参数的正切值。
-21 |asin() 求指定double类型参数的反正弦值。
-22 |acos() 求指定double类型参数的反余弦值。
-23 |atan() 求指定double类型参数的反正切值。
-24 |atan2() 将笛卡尔坐标转换为极坐标，并返回极坐标的角度值。
-25 |toDegrees() 将参数转化为角度。
-26 |toRadians() 将角度转换为弧度。
-27 |random() 返回一个随机数。
+1 |`xxxValue()` 将 Number 对象转换为xxx数据类型的值并返回。
+2 |`compareTo()` 将number对象与参数比较。
+3 |`equals()` 判断number对象是否与参数相等。
+4 |`valueOf()`返回一个 Number 对象指定的内置数据类型
+5 |`toString()` 以字符串形式返回值。
+6 |`parseInt()` 将字符串解析为 int 类型。
+7 |`abs()` 返回参数的绝对值。
+8 |`ceil()` 返回大于等于( `>=` )给定参数的的最小整数，类型为双精度浮点型。
+9 |`floor()` 返回小于等于（ `<=` ）给定参数的最大整数 。
+10 |`rint()` 返回与参数最接近的整数。返回类型为 double。
+11 |`round()` 它表示四舍五入，算法为 `Math.floor(x+0.5)`，即将原来的数字加上 0.5 后再向下取整，所以，`Math.round(11.5)` 的结果为12，`Math.round(-11.5)` 的结果为-11。
+12 |`min()` 返回两个参数中的最小值。
+13 |`max()` 返回两个参数中的最大值。
+14 |`exp()` 返回自然数底数e的参数次方。
+15 |`log()` 返回参数的自然数底数的对数值。
+16 |`pow()` 返回第一个参数的第二个参数次方。
+17 |`sqrt()` 求参数的算术平方根。
+18 |`sin()` 求指定double类型参数的正弦值。
+19 |`cos()` 求指定double类型参数的余弦值。
+20 |`tan()` 求指定double类型参数的正切值。
+21 |`asin()` 求指定double类型参数的反正弦值。
+22 |`acos()` 求指定double类型参数的反余弦值。
+23 |`atan()` 求指定double类型参数的反正切值。
+24 |`atan2()` 将笛卡尔坐标转换为极坐标，并返回极坐标的角度值。
+25 |`toDegrees()` 将参数转化为角度。
+26 |`toRadians()` 将角度转换为弧度。
+27 |`random()` 返回一个随机数。
 
 
-# <a id="Math的floor,round和ceil方法实例比较" style="padding-top: 60px;">Math的floor,round和ceil方法实例比较</a>
+## <a id="Math的floor,round和ceil方法实例比较" style="padding-top: 60px;">4.Math的floor,round和ceil方法实例比较</a>
 
-参数|Math.floor|Math.round|Math.ceil
+参数|`Math.floor`|`Math.round`|`Math.ceil`
 :-:|:-:|:-:|:-:
 1.4|1|1|2
 1.5|1|2|2
@@ -121,7 +133,7 @@ Number和Math类方法
 -1.5|-2|-1|-1
 -1.6|-2|-2|-1
 
-floor,round 和 ceil 实例：
+`floor`, `round` 和 `ceil` 实例：
 
 ```java
 public class Main {   
@@ -163,8 +175,19 @@ Math.round(-1.6)=-2
 Math.ceil(-1.6)=-1.0
 ```
 
+
+
+#### 源码获取
+
+实例源码已经托管到如下地址：
+
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/numbermath" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/numbermath</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/numbermath" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/numbermath</a>
+
+
 ----------
 
-上一篇：<a href="/training/java-switch-case.html">switch_case</a>
+上一篇：[switch_case](/training/java-switch-case.html "switch_case - 语言基础 - Java入门 - 免费课程 - 光束云 - work100.net")
 
-下一篇：<a href="/training/java-character.html">Character类</a>
+下一篇：[Character类](/training/java-character.html "Character类 - 语言基础 - Java入门 - 免费课程 - 光束云 - work100.net")

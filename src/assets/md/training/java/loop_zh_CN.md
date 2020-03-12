@@ -1,22 +1,36 @@
 
 # <a id="循环结构" style="padding-top: 60px;">循环结构</a>
 
+
+序号|文内章节|视频
+:---:|:---|:---
+1|[概述](#概述)|
+2|[while循环](#while循环)|
+3|[do…while循环](#do…while循环)|
+4|[for循环](#for循环)|
+5|[增强for循环](#增强for循环)|
+6|[break关键字](#break关键字)|
+7|[continue关键字](#continue关键字)|
+
+请参照如上`章节导航`进行阅读
+
+
+## <a id="概述" style="padding-top: 60px;">1.概述</a>
+
 顺序结构的程序语句只能被执行一次。如果您想要同样的操作执行多次,，就需要使用循环结构。
 
 Java中有三种主要的循环结构：
 
-- **while** 循环
+- `while` 循环
+- `do…while` 循环
+- `for` 循环
 
-- **do…while** 循环
-
-- **for** 循环
-
-在Java5中引入了一种主要用于数组的增强型for循环。
+在Java5中引入了一种主要用于数组的增强型`for`循环。
 
 
-## <a id="while循环" style="padding-top: 60px;">while循环</a>
+## <a id="while循环" style="padding-top: 60px;">2.while循环</a>
 
-while是最基本的循环，它的结构为：
+`while` 是最基本的循环，它的结构为：
 
 ```cmd
 while( 布尔表达式 ) {
@@ -24,13 +38,13 @@ while( 布尔表达式 ) {
 }
 ```
 
-只要布尔表达式为 true，循环就会一直执行下去。
+只要布尔表达式为 `true`，循环就会一直执行下去。
 
 **实例**
 
 ```java
 public class Test {
-   public static void main(String args[]) {
+   public static void main(String[] args) {
       int x = 10;
       while( x < 20 ) {
          System.out.print("value of x : " + x );
@@ -57,11 +71,11 @@ value of x : 19
 ```
 
 
-## <a id="do…while循环" style="padding-top: 60px;">do…while循环</a>
+## <a id="do…while循环" style="padding-top: 60px;">3.do…while循环</a>
 
-对于 while 语句而言，如果不满足条件，则不能进入循环。但有时候我们需要即使不满足条件，也至少执行一次。
+对于 `while` 语句而言，如果不满足条件，则不能进入循环。但有时候我们需要即使不满足条件，也至少执行一次。
 
-do…while 循环和 while 循环相似，不同的是，do…while 循环至少会执行一次。
+`do…while` 循环和 `while` 循环相似，不同的是，`do…while` 循环至少会执行一次。
 
 ```cmd
 do {
@@ -69,13 +83,13 @@ do {
 }while(布尔表达式);
 ```
 
-> 注意：布尔表达式在循环体的后面，所以语句块在检测布尔表达式之前已经执行了。 如果布尔表达式的值为 true，则语句块一直执行，直到布尔表达式的值为 false
+> 注意：布尔表达式在循环体的后面，所以语句块在检测布尔表达式之前已经执行了。 如果布尔表达式的值为 `true`，则语句块一直执行，直到布尔表达式的值为 `false`
 
 **实例**
 
 ```java
 public class Test {
-   public static void main(String args[]){
+   public static void main(String[] args){
       int x = 10;
  
       do{
@@ -103,11 +117,11 @@ value of x : 19
 ```
 
 
-## <a id="for循环" style="padding-top: 60px;">for循环</a>
+## <a id="for循环" style="padding-top: 60px;">4.for循环</a>
 
-虽然所有循环结构都可以用 while 或者 do...while表示，但 Java 提供了另一种语句 —— for 循环，使一些循环结构变得更加简单。
+虽然所有循环结构都可以用 `while` 或者 `do...while` 表示，但 Java 提供了另一种语句 —— `for` 循环，使一些循环结构变得更加简单。
 
-for循环执行的次数是在执行前就确定的。语法格式如下：
+`for` 循环执行的次数是在执行前就确定的。语法格式如下：
 
 ```cmd
 for(初始化; 布尔表达式; 更新) {
@@ -115,21 +129,18 @@ for(初始化; 布尔表达式; 更新) {
 }
 ```
 
-关于 for 循环有以下几点说明：
+关于 `for` 循环有以下几点说明：
 
 - 最先执行初始化步骤。可以声明一种类型，但可初始化一个或多个循环控制变量，也可以是空语句
-
-- 然后，检测布尔表达式的值。如果为 true，循环体被执行。如果为false，循环终止，开始执行循环体后面的语句
-
+- 然后，检测布尔表达式的值。如果为 `true`，循环体被执行。如果为 `false`，循环终止，开始执行循环体后面的语句
 - 执行一次循环后，更新循环控制变量
-
 - 再次检测布尔表达式。循环执行上面的过程
 
 **实例**
 
 ```java
 public class Test {
-   public static void main(String args[]) {
+   public static void main(String[] args) {
  
       for(int x = 10; x < 20; x = x+1) {
          System.out.print("value of x : " + x );
@@ -155,11 +166,11 @@ value of x : 19
 ```
 
 
-## <a id="Java增强for循环" style="padding-top: 60px;">Java增强for循环</a>
+## <a id="增强for循环" style="padding-top: 60px;">5.增强for循环</a>
 
-Java5 引入了一种主要用于数组的增强型 for 循环。
+Java5 引入了一种主要用于数组的增强型 `for` 循环。
 
-Java 增强 for 循环语法格式如下:
+Java 增强 `for` 循环语法格式如下:
 
 
 ```cmd
@@ -177,7 +188,7 @@ for(声明语句 : 表达式)
 
 ```java
 public class Test {
-   public static void main(String args[]){
+   public static void main(String[] args){
       int [] numbers = {10, 20, 30, 40, 50};
  
       for(int x : numbers ){
@@ -202,15 +213,15 @@ James,Larry,Tom,Lacy,
 ```
 
 
-## <a id="break关键字" style="padding-top: 60px;">break关键字</a>
+## <a id="break关键字" style="padding-top: 60px;">6.break关键字</a>
 
-break 主要用在循环语句或者 switch 语句中，用来跳出整个语句块。
+`break` 主要用在循环语句或者 `switch` 语句中，用来跳出整个语句块。
 
-break 跳出最里层的循环，并且继续执行该循环下面的语句。
+`break` 跳出最里层的循环，并且继续执行该循环下面的语句。
 
 **语法**
 
-break 的用法很简单，就是循环结构中的一条语句：
+`break` 的用法很简单，就是循环结构中的一条语句：
 
 ```cmd
 break;
@@ -220,7 +231,7 @@ break;
 
 ```java
 public class Test {
-   public static void main(String args[]) {
+   public static void main(String[] args) {
       int [] numbers = {10, 20, 30, 40, 50};
  
       for(int x : numbers ) {
@@ -243,17 +254,17 @@ public class Test {
 ```
 
 
-## <a id="continue关键字" style="padding-top: 60px;">continue关键字</a>
+## <a id="continue关键字" style="padding-top: 60px;">7.continue关键字</a>
 
-continue 适用于任何循环控制结构中。作用是让程序立刻跳转到下一次循环的迭代。
+`continue` 适用于任何循环控制结构中。作用是让程序立刻跳转到下一次循环的迭代。
 
-在 for 循环中，continue 语句使程序立即跳转到更新语句。
+在 `for` 循环中，`continue` 语句使程序立即跳转到更新语句。
 
-在 while 或者 do…while 循环中，程序立即跳转到布尔表达式的判断语句。
+在 `while` 或者 `do…while` 循环中，程序立即跳转到布尔表达式的判断语句。
 
 **语法**
 
-continue 就是循环体中一条简单的语句：
+`continue` 就是循环体中一条简单的语句：
 
 
 ```cmd
@@ -264,12 +275,12 @@ continue;
 
 ```java
 public class Test {
-   public static void main(String args[]) {
+   public static void main(String[] args) {
       int [] numbers = {10, 20, 30, 40, 50};
  
       for(int x : numbers ) {
          if( x == 30 ) {
-        continue;
+            continue;
          }
          System.out.print( x );
          System.out.print("\n");
@@ -289,8 +300,19 @@ public class Test {
 ```
 
 
+
+#### 源码获取
+
+实例源码已经托管到如下地址：
+
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/loop" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/loop</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/loop" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/loop</a>
+
+
+
 ----------
 
-上一篇：<a href="/training/java-operator.html">运算符</a>
+上一篇：[运算符](/training/java-operator.html "运算符 - 语言基础 - Java入门 - 免费课程 - 光束云 - work100.net")
 
-下一篇：<a href="/training/java-if-else.html">条件语句</a>
+下一篇：[条件语句](/training/java-if-else.html "条件语句 - 语言基础 - Java入门 - 免费课程 - 光束云 - work100.net")
