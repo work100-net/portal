@@ -1,15 +1,19 @@
 <template>
-  <div class="left-menu-container">
+  <el-scrollbar wrap-class="scrollbar-wrapper">
     <el-menu
       :default-active="activeMenu"
-      :default-openeds="openedsMenu"
-      :unique-opened="false"
+      :unique-opened="true"
       :router="true"
+      mode="vertical"
     >
+      <el-menu-item index="/training/index">
+        <el-icon class="el-icon-video-play" />
+        开课导读
+      </el-menu-item>
       <el-submenu index="/training/java">
         <template slot="title">
           <el-icon class="el-icon-menu" />
-          Java 教程
+          Java入门
         </template>
         <el-menu-item index="/training/java">
           <el-icon class="el-icon-tickets" />
@@ -31,7 +35,7 @@
       <el-submenu index="/training/micro-services">
         <template slot="title">
           <el-icon class="el-icon-menu" />
-          微服务开发
+          Java微服务
         </template>
         <el-menu-item index="/training/micro-services">
           <el-icon class="el-icon-tickets" />
@@ -39,7 +43,7 @@
         </el-menu-item>
       </el-submenu>
     </el-menu>
-  </div>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -50,15 +54,7 @@ export default {
       const route = this.$route
       const { path } = route
       return path
-    },
-    openedsMenu() {
-      return ['/training/java', '/training/micro-services']
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  .left-menu-container {
-  }
-</style>

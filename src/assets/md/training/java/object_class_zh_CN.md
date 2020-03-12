@@ -1,24 +1,34 @@
 
 # <a id="对象和类" style="padding-top: 60px;">对象和类</a>
 
+
+序号|文内章节|视频
+:---:|:---|:---
+1|[概述](#概述)|[B站](https://www.bilibili.com/video/av87110025/) 
+2|[Java中的对象](#Java中的对象)|
+3|[Java中的类](#Java中的类)|
+4|[构造方法](#构造方法)|
+5|[访问实例变量和方法](#访问实例变量和方法)|
+6|[源文件声明规则](#源文件声明规则)|
+7|[Java包](#Java包)|
+8|[Import语句](#Import语句)|
+9|[一个简单的例子](#一个简单的例子)|
+
+请参照如上`章节导航`进行阅读
+
+
+## <a id="概述" style="padding-top: 60px;">1.概述</a>
+
 Java作为一种面向对象语言。支持以下基本概念：
 
 - 多态
-
 - 继承
-
 - 封装
-
 - 抽象
-
 - 类
-
 - 对象
-
 - 实例
-
 - 方法
-
 - 重载
 
 本节我们重点研究**对象**和**类**的概念。
@@ -33,9 +43,9 @@ Java作为一种面向对象语言。支持以下基本概念：
 <img src="http://contents.work100.net/images/training/java/object-class/example.jpg" style="max-width: 98%" />
 
 
-## <a id="Java中的对象" style="padding-top: 60px;">Java中的对象</a>
+## <a id="Java中的对象" style="padding-top: 60px;">2.Java中的对象</a>
 
-现在让我们深入了解什么是对象。看看周围真实的世界，会发现身边有很多对象，车，狗，人等等。所有这些对象都有自己的状态和行为。
+现在让我们深入了解什么是对象。看看周围真实的世界，会发现身边有很多对象，车，狗，人等等。所有这些对象都有自己的`状态`和`行为`。
 
 拿一条狗来举例，它的状态有：名字、品种、颜色，行为有：叫、摇尾巴和跑。
 
@@ -46,17 +56,18 @@ Java作为一种面向对象语言。支持以下基本概念：
 在软件开发中，方法操作对象内部状态的改变，对象的相互调用也是通过方法来完成。
 
 
-## <a id="Java中的类" style="padding-top: 60px;">Java中的类</a>
+## <a id="Java中的类" style="padding-top: 60px;">3.Java中的类</a>
 
-类可以看成是创建Java对象的模板。
+类可以看成是创建 Java 对象的模板。
 
-通过下面一个简单的类来理解下Java中类的定义：
+通过下面一个简单的类来理解下 Java 中类的定义：
 
 ```java
 public class Dog{
   String breed;
   int age;
   String color;
+  
   void barking(){
   }
  
@@ -76,10 +87,10 @@ public class Dog{
 
 - **类变量**：类变量也声明在类中，方法体之外，但必须声明为static类型。
 
-一个类可以拥有多个方法，在上面的例子中：barking()、hungry()和sleeping()都是Dog类的方法。
+一个类可以拥有多个方法，在上面的例子中：`barking()`、`hungry()`和`sleeping()`都是Dog类的方法。
 
 
-## <a id="构造方法" style="padding-top: 60px;">构造方法</a>
+## <a id="构造方法" style="padding-top: 60px;">4.构造方法</a>
 
 每个类都有构造方法。如果没有显式地为类定义构造方法，Java编译器将会为该类提供一个默认构造方法。
 
@@ -95,7 +106,7 @@ public class Puppy{
    }
    public static void main(String[] args){
       // 下面的语句将创建一个Puppy对象
-      Puppy myPuppy = new Puppy( "tommy" );
+      Puppy puppy = new Puppy( "tommy" );
    }
 }
 ```
@@ -107,7 +118,7 @@ public class Puppy{
 ```
 
 
-## <a id="访问实例变量和方法" style="padding-top: 60px;">访问实例变量和方法</a>
+## <a id="访问实例变量和方法" style="padding-top: 60px;">5.访问实例变量和方法</a>
 
 通过已创建的对象来访问成员变量和成员方法，如下所示：
 
@@ -121,94 +132,97 @@ referenceVariable.methodName();
 ```
 
 
-## <a id="实例" style="padding-top: 60px;">实例</a>
+### 实例
 
 下面的例子展示如何访问实例变量和调用成员方法：
 
 ```java
-public class Puppy{
-   int puppyAge;
-   public Puppy(String name){
-      // 这个构造器仅有一个参数：name
-      System.out.println("小狗的名字是 : " + name ); 
-   }
- 
-   public void setAge( int age ){
-       puppyAge = age;
-   }
- 
-   public int getAge( ){
-       System.out.println("小狗的年龄为 : " + puppyAge ); 
-       return puppyAge;
-   }
- 
-   public static void main(String[] args){
-      /* 创建对象 */
-      Puppy myPuppy = new Puppy( "tommy" );
-      /* 通过方法来设定age */
-      myPuppy.setAge( 2 );
-      /* 调用另一个方法获取age */
-      myPuppy.getAge( );
-      /*你也可以像下面这样访问成员变量 */
-      System.out.println("变量值 : " + myPuppy.puppyAge ); 
-   }
+public class Puppy {
+
+    int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    /**
+     * 构造函数
+     *
+     * @param name 名字（参数）
+     */
+    public Puppy(String name){
+        System.out.println("小狗的名字是：" + name);
+    }
+
+    public static void main(String[] args) {
+        /* 实例化一个 Puppy 对象 */
+        Puppy puppy = new Puppy("tommy");
+
+        /* 通过方法设定 age */
+        puppy.setAge(2);
+
+        /* 调用另一个方法获取 age */
+        System.out.println("小狗的年龄为：" + puppy.getAge());
+
+        /* 也可通过下面的方式访问成员变量 */
+        System.out.println("变量值：" + puppy.age);
+    }
 }
 ```
 
 编译并运行上面的程序，产生如下结果：
 
 ```cmd
-小狗的名字是 : tommy
-小狗的年龄为 : 2
-变量值 : 2
+小狗的名字是：tommy
+小狗的年龄为：2
+变量值：2
 ```
 
-## <a id="源文件声明规则" style="padding-top: 60px;">源文件声明规则</a>
+## <a id="源文件声明规则" style="padding-top: 60px;">6.源文件声明规则</a>
 
-在本节的最后部分，我们将学习源文件的声明规则。当在一个源文件中定义多个类，并且还有import语句和package语句时，要特别注意这些规则。
+在本节的最后部分，我们将学习源文件的声明规则。当在一个源文件中定义多个类，并且还有 `import` 语句和 `package` 语句时，要特别注意这些规则。
 
-- 一个源文件中只能有一个public类
+- 一个源文件中只能有一个`public`类
+- 一个源文件可以有多个非`public`类
+- 源文件的名称应该和`public`类的类名保持一致。例如：源文件中`public`类的类名是 `Employee`，那么源文件应该命名为 `Employee.java`。
+- 如果一个类定义在某个包中，那么`package`语句应该在源文件的首行。
+- 如果源文件包含`import`语句，那么应该放在`package`语句和类定义之间。如果没有`package`语句，那么`import`语句应该在源文件中最前面。
+- `import`语句和`package`语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。
 
-- 一个源文件可以有多个非public类
+类有若干种访问级别，并且类也分不同的类型：`抽象类`和`final类`等。这些将在访问控制章节介绍。
 
-- 源文件的名称应该和public类的类名保持一致。例如：源文件中public类的类名是Employee，那么源文件应该命名为Employee.java。
-
-- 如果一个类定义在某个包中，那么package语句应该在源文件的首行。
-
-- 如果源文件包含import语句，那么应该放在package语句和类定义之间。如果没有package语句，那么import语句应该在源文件中最前面。
-
-- import语句和package语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。
-
-类有若干种访问级别，并且类也分不同的类型：抽象类和final类等。这些将在访问控制章节介绍。
-
-除了上面提到的几种类型，Java还有一些特殊的类，如：内部类、匿名类。
+除了上面提到的几种类型，Java还有一些特殊的类，如：`内部类`、`匿名类`。
 
 
-## <a id="Java包" style="padding-top: 60px;">Java包</a>
+## <a id="Java包" style="padding-top: 60px;">7.Java包</a>
 
 包主要用来对类和接口进行分类。当开发Java程序时，可能编写成百上千的类，因此很有必要对类和接口进行分类。
 
 
-## <a id="Import语句" style="padding-top: 60px;">Import语句</a>
+## <a id="Import语句" style="padding-top: 60px;">8.Import语句</a>
 
-在Java中，如果给出一个完整的限定名，包括包名、类名，那么Java编译器就可以很容易地定位到源代码或者类。Import语句就是用来提供一个合理的路径，使得编译器可以找到某个类。
+在Java中，如果给出一个完整的限定名，包括包名、类名，那么Java编译器就可以很容易地定位到源代码或者类。`Import`语句就是用来提供一个合理的路径，使得编译器可以找到某个类。
 
-例如，下面的命令行将会命令编译器载入java_installation/java/io路径下的所有类
+例如，下面的命令行将会命令编译器载入`java_installation/java/io`路径下的所有类
 
 ```java
 import java.io.*;
 ```
 
 
-## <a id="一个简单的例子" style="padding-top: 60px;">一个简单的例子</a>
+## <a id="一个简单的例子" style="padding-top: 60px;">9.一个简单的例子</a>
 
-在该例子中，我们创建两个类：Employee 和 EmployeeTest。
+在该例子中，我们创建两个类：`Employee` 和 `EmployeeTest`。
 
-首先打开文本编辑器，把下面的代码粘贴进去。注意将文件保存为 Employee.java。
+首先打开文本编辑器，把下面的代码粘贴进去。注意将文件保存为 `Employee.java`。
 
-Employee类有四个成员变量：name、age、designation和salary。该类显式声明了一个构造方法，该方法只有一个参数。
+`Employee`类有四个成员变量：`name`、`age`、`designation`和`salary`。该类显式声明了一个构造方法，该方法只有一个参数。
 
-Employee.java 文件代码：
+`Employee.java` 文件代码：
 
 ```java
 import java.io.*;
@@ -244,13 +258,13 @@ public class Employee{
 }
 ```
 
-程序都是从main方法开始执行。为了能运行这个程序，必须包含main方法并且创建一个实例对象。
+程序都是从 `main` 方法开始执行。为了能运行这个程序，必须包含 `main` 方法并且创建一个实例对象。
 
-下面给出EmployeeTest类，该类实例化2个 Employee 类的实例，并调用方法设置变量的值。
+下面给出 `EmployeeTest` 类，该类实例化2个 `Employee` 类的实例，并调用方法设置变量的值。
 
-将下面的代码保存在 EmployeeTest.java文件中。
+将下面的代码保存在 `EmployeeTest.java` 文件中。
 
-EmployeeTest.java 文件代码：
+`EmployeeTest.java` 文件代码：
 
 ```java
 import java.io.*;
@@ -263,35 +277,46 @@ public class EmployeeTest{
  
       // 调用这两个对象的成员方法
       empOne.empAge(26);
-      empOne.empDesignation("高级程序员");
+      empOne.empDesignation("经理");
       empOne.empSalary(1000);
       empOne.printEmployee();
  
       empTwo.empAge(21);
-      empTwo.empDesignation("菜鸟程序员");
+      empTwo.empDesignation("职员");
       empTwo.empSalary(500);
       empTwo.printEmployee();
    }
 }
 ```
 
-编译这两个文件并且运行 EmployeeTest 类，可以看到如下结果：
+编译这两个文件并且运行 `EmployeeTest` 类，可以看到如下结果：
 
 ```cmd
 $ javac EmployeeTest.java
 $ java EmployeeTest 
 名字:Name1
 年龄:26
-职位:高级程序员
+职位:经理
 薪水:1000.0
 名字:Name2
 年龄:21
-职位:菜鸟程序员
+职位:职员
 薪水:500.0
 ```
 
+
+
+#### 源码获取
+
+实例源码已经托管到如下地址：
+
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/objectandclass" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/objectandclass</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/objectandclass" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/objectandclass</a>
+
+
 ----------
 
-上一篇：<a href="/training/java-basic-syntax.html">基础语法</a>
+上一篇：[基础语法](/training/java-basic-syntax.html "基础语法 - 语言基础 - Java入门 - 光束云 - work100.net")
 
-下一篇：<a href="/training/java-basic-datatype.html">基本数据类型</a>
+下一篇：[基本数据类型](/training/java-basic-datatype.html "基本数据类型 - 语言基础 - Java入门 - 光束云 - work100.net")

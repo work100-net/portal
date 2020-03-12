@@ -1,12 +1,25 @@
 
 # <a id="变量类型" style="padding-top: 60px;">变量类型</a>
 
+
+序号|文内章节|视频
+:---:|:---|:---
+1|[概述](#概述)|[B站](https://www.bilibili.com/video/av87110714/) 
+2|[局部变量](#局部变量)|
+3|[实例变量](#实例变量)|
+4|[类变量（静态变量）](#类变量（静态变量）)|
+
+请参照如上`章节导航`进行阅读
+
+
+## <a id="概述" style="padding-top: 60px;">1.概述</a>
+
 ```cmd
 type identifier [ = value][, identifier [= value] ...] ;
 ```
-格式说明：type为Java数据类型。identifier是变量名。可以使用逗号隔开来声明多个同类型变量。
+格式说明：`type` 为Java数据类型。`identifier` 是变量名。可以使用逗号隔开来声明多个同类型变量。
 
-以下列出了一些变量的声明实例。注意有些包含了初始化过程。
+以下列出了一些变量的声明实例，注意有些包含了初始化过程。
 
 ```cmd
 int a, b, c;         // 声明三个int型整数：a、 b、c
@@ -19,10 +32,8 @@ char x = 'x';        // 声明变量 x 的值是字符 'x'。
 
 Java语言支持的变量类型有：
 
-- **类变量**：独立于方法之外的变量，用 static 修饰
-
-- **实例变量**：独立于方法之外的变量，不过没有 static 修饰
-
+- **类变量**：独立于方法之外的变量，用 `static` 修饰
+- **实例变量**：独立于方法之外的变量，不过没有 `static` 修饰
 - **局部变量**：类的方法中的变量
 
 实例:
@@ -39,24 +50,19 @@ public class Variable{
 ```
 
 
-## <a id="Java局部变量" style="padding-top: 60px;">Java局部变量</a>
+## <a id="局部变量" style="padding-top: 60px;">2.局部变量</a>
 
 - 局部变量声明在方法、构造方法或者语句块中
-
 - 局部变量在方法、构造方法、或者语句块被执行的时候创建，当它们执行完成后，变量将会被销毁
-
 - 访问修饰符不能用于局部变量
-
 - 局部变量只在声明它的方法、构造方法或者语句块中可见
-
 - 局部变量是在栈上分配的
-
 - 局部变量没有默认值，所以局部变量被声明后，必须经过初始化，才可以使用
 
 
 ### 实例 1
 
-在以下实例中age是一个局部变量。定义在pupAge()方法中，它的作用域就限制在这个方法中。
+在以下实例中 `age` 是一个局部变量。定义在 `pupAge()` 方法中，它的作用域就限制在这个方法中。
 
 
 ```java
@@ -85,7 +91,7 @@ public class Test{
 
 ### 实例 2
 
-在下面的例子中 age 变量没有初始化，所以在编译时会出错：
+在下面的例子中 `age` 变量没有初始化，所以在编译时会出错：
 
 ```java
 package net.work100.test;
@@ -114,27 +120,19 @@ age = age + 7;
 ```
 
 
-## <a id="实例变量" style="padding-top: 60px;">实例变量</a>
+## <a id="实例变量" style="padding-top: 60px;">3.实例变量</a>
 
 - 实例变量声明在一个类中，但在方法、构造方法和语句块之外
-
 - 当一个对象被实例化之后，每个实例变量的值就跟着确定
-
 - 实例变量在对象创建的时候创建，在对象被销毁的时候销毁
-
 - 实例变量的值应该至少被一个方法、构造方法或者语句块引用，使得外部能够通过这些方式获取实例变量信息
-
 - 实例变量可以声明在使用前或者使用后
-
 - 访问修饰符可以修饰实例变量
-
 - 实例变量对于类中的方法、构造方法或者语句块是可见的。一般情况下应该把实例变量设为私有。通过使用访问修饰符可以使实例变量对子类可见
+- 实例变量具有默认值。数值型变量的默认值是`0`，布尔型变量的默认值是`false`，引用类型变量的默认值是`null`。变量的值可以在声明时指定，也可以在构造方法中指定
+- 实例变量可以直接通过变量名访问。但在静态方法以及其他类中，就应该使用完全限定名：`ObejectReference.VariableName`
 
-- 实例变量具有默认值。数值型变量的默认值是0，布尔型变量的默认值是false，引用类型变量的默认值是null。变量的值可以在声明时指定，也可以在构造方法中指定
-
-- 实例变量可以直接通过变量名访问。但在静态方法以及其他类中，就应该使用完全限定名：ObejectReference.VariableName
-
-Employee.java 文件代码：
+`Employee.java` 文件代码：
 
 ```java
 import java.io.*;
@@ -158,7 +156,7 @@ public class Employee{
    }
  
    public static void main(String[] args){
-      Employee empOne = new Employee("Zhangsan");
+      Employee empOne = new Employee("张三");
       empOne.setSalary(1000);
       empOne.printEmp();
    }
@@ -170,32 +168,24 @@ public class Employee{
 ```cmd
 $ javac Employee.java 
 $ java Employee
-名字 : Zhangsan
+名字 : 张三
 薪水 : 1000.0
 ```
 
-## <a id="类变量（静态变量）" style="padding-top: 60px;">类变量（静态变量）</a>
+## <a id="类变量（静态变量）" style="padding-top: 60px;">4.类变量（静态变量）</a>
 
-- 类变量也称为静态变量，在类中以 static 关键字声明，但必须在方法之外
-
+- 类变量也称为静态变量，在类中以 `static` 关键字声明，但必须在方法之外
 - 无论一个类创建了多少个对象，类只拥有类变量的一份拷贝
-
-- 静态变量除了被声明为常量外很少使用。常量是指声明为public/private，final和static类型的变量。常量初始化后不可改变
-
-- 静态变量储存在静态存储区。经常被声明为常量，很少单独使用static声明变量
-
+- 静态变量除了被声明为常量外很少使用。常量是指声明为 `public` / `private`，`final` 和 `static` 类型的变量。常量初始化后不可改变
+- 静态变量储存在静态存储区。经常被声明为常量，很少单独使用 `static` 声明变量
 - 静态变量在第一次被访问时创建，在程序结束时销毁
-
-- 与实例变量具有相似的可见性。但为了对类的使用者可见，大多数静态变量声明为public类型
-
-- 默认值和实例变量相似。数值型变量默认值是0，布尔型默认值是false，引用类型默认值是null。变量的值可以在声明的时候指定，也可以在构造方法中指定。此外，静态变量还可以在静态语句块中初始化
-
-- 静态变量可以通过：ClassName.VariableName的方式访问
-
-- 类变量被声明为public static final类型时，类变量名称一般建议使用大写字母。如果静态变量不是public和final类型，其命名方式与实例变量以及局部变量的命名方式一致
+- 与实例变量具有相似的可见性。但为了对类的使用者可见，大多数静态变量声明为 `public` 类型
+- 默认值和实例变量相似。数值型变量默认值是`0`，布尔型默认值是`false`，引用类型默认值是`null`。变量的值可以在声明的时候指定，也可以在构造方法中指定。此外，静态变量还可以在静态语句块中初始化
+- 静态变量可以通过：`ClassName.VariableName` 的方式访问
+- 类变量被声明为 `public static final` 类型时，类变量名称一般建议使用大写字母。如果静态变量不是 `public` 和 `final` 类型，其命名方式与实例变量以及局部变量的命名方式一致
 
 
-Employee.java 文件代码：
+`Employee.java` 文件代码：
 
 ```java
 import java.io.*;
@@ -218,13 +208,24 @@ public class Employee {
 开发人员平均工资:10000.0
 ```
 
-> 注意：如果其他类想要访问该变量，可以这样访问：**Employee.DEPARTMENT**
+> 注意：如果其他类想要访问该变量，可以这样访问：`Employee.DEPARTMENT`
 
 本章节中我们学习了Java的变量类型，下一章节中我们将介绍Java修饰符的使用。
 
 
+
+
+#### 源码获取
+
+实例源码已经托管到如下地址：
+
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/variabletype" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/variabletype</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/variabletype" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/basic/variabletype</a>
+
+
 ----------
 
-上一篇：<a href="/training/java-basic-datatype.html">基本数据类型</a>
+上一篇：[基本数据类型](/training/java-basic-datatype.html "基本数据类型 - 语言基础 - Java入门 - 免费课程 - 光束云 - work100.net")
 
-下一篇：<a href="/training/java-modifier-type.html">修饰符</a>
+下一篇：[修饰符](/training/java-modifier-type.html "修饰符 - 语言基础 - Java入门 - 免费课程 - 光束云 - work100.net")

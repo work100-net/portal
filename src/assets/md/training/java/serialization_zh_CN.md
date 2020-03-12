@@ -1,8 +1,15 @@
 
 # <a id="序列化" style="padding-top: 60px;">序列化</a>
 
+序号|文内章节|视频
+:---:|:---|:---
+1|[概述](#概述)|
+2|[序列化对象](#序列化对象)|
+3|[反序列化对象](#反序列化对象)|
 
-## <a id="Java序列化" style="padding-top: 60px;">Java序列化</a>
+请参照如上`章节导航`进行阅读
+
+## <a id="概述" style="padding-top: 60px;">1.概述</a>
 
 Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。
 
@@ -10,24 +17,24 @@ Java 提供了一种对象序列化的机制，该机制中，一个对象可以
 
 整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可以在另一个完全不同的平台上反序列化该对象。
 
-类 ObjectInputStream 和 ObjectOutputStream 是高层次的数据流，它们包含反序列化和序列化对象的方法。
+类 `ObjectInputStream` 和 `ObjectOutputStream` 是高层次的数据流，它们包含反序列化和序列化对象的方法。
 
-ObjectOutputStream 类包含很多写方法来写各种数据类型，但是一个特别的方法例外：
+`ObjectOutputStream` 类包含很多写方法来写各种数据类型，但是一个特别的方法例外：
 
 ```java
 public final void writeObject(Object x) throws IOException
 ```
 
-上面的方法序列化一个对象，并将它发送到输出流。相似的 ObjectInputStream 类包含如下反序列化一个对象的方法：
+上面的方法序列化一个对象，并将它发送到输出流。相似的 `ObjectInputStream` 类包含如下反序列化一个对象的方法：
 
 ```java
 public final Object readObject() throws IOException, 
                                  ClassNotFoundException
 ```
 
-该方法从流中取出下一个对象，并将对象反序列化。它的返回值为Object，因此，你需要将它转换成合适的数据类型。
+该方法从流中取出下一个对象，并将对象反序列化。它的返回值为 `Object`，因此，你需要将它转换成合适的数据类型。
 
-为了演示序列化在Java中是怎样工作的，我将使用之前教程中提到的Employee类，假设我们定义了如下的Employee类，该类实现了Serializable 接口。
+为了演示序列化在 Java 中是怎样工作的，我将使用之前教程中提到的 `Employee` 类，假设我们定义了如下的 `Employee` 类，该类实现了 `Serializable` 接口。
 
 ```java
 public class Employee implements java.io.Serializable
@@ -46,20 +53,20 @@ public class Employee implements java.io.Serializable
 
 请注意，一个类的对象要想序列化成功，必须满足两个条件：
 
-该类必须实现 java.io.Serializable 接口。
+该类必须实现 `java.io.Serializable` 接口。
 
 该类的所有属性必须是可序列化的。如果有一个属性不是可序列化的，则该属性必须注明是短暂的。
 
-如果你想知道一个 Java 标准类是否是可序列化的，请查看该类的文档。检验一个类的实例是否能序列化十分简单， 只需要查看该类有没有实现 java.io.Serializable接口。
+如果你想知道一个 Java 标准类是否是可序列化的，请查看该类的文档。检验一个类的实例是否能序列化十分简单， 只需要查看该类有没有实现 `java.io.Serializable` 接口。
 
 
-## <a id="序列化对象" style="padding-top: 60px;">序列化对象</a>
+## <a id="序列化对象" style="padding-top: 60px;">2.序列化对象</a>
 
-ObjectOutputStream 类用来序列化一个对象，如下的 SerializeDemo 例子实例化了一个 Employee 对象，并将该对象序列化到一个文件中。
+`ObjectOutputStream` 类用来序列化一个对象，如下的 `SerializeDemo` 例子实例化了一个 `Employee` 对象，并将该对象序列化到一个文件中。
 
-该程序执行后，就创建了一个名为 employee.ser 文件。该程序没有任何输出，但是你可以通过代码研读来理解程序的作用。
+该程序执行后，就创建了一个名为 `employee.ser` 文件。该程序没有任何输出，但是你可以通过代码研读来理解程序的作用。
 
-注意： 当序列化一个对象到文件时， 按照 Java 的标准约定是给文件一个 .ser 扩展名。
+注意：当序列化一个对象到文件时， 按照 Java 的标准约定是给文件一个 `.ser` 扩展名。
 
 
 ```java
@@ -92,9 +99,9 @@ public class SerializeDemo
 ```
 
 
-## <a id="反序列化对象" style="padding-top: 60px;">反序列化对象</a>
+## <a id="反序列化对象" style="padding-top: 60px;">3.反序列化对象</a>
 
-下面的 DeserializeDemo 程序实例了反序列化，/tmp/employee.ser 存储了 Employee 对象。
+下面的 `DeserializeDemo` 程序实例了反序列化，`/tmp/employee.ser` 存储了 `Employee` 对象。
 
 
 ```java
@@ -144,16 +151,25 @@ Number:101
 
 这里要注意以下要点：
 
-readObject() 方法中的 try/catch代码块尝试捕获 ClassNotFoundException 异常。对于 JVM 可以反序列化对象，它必须是能够找到字节码的类。如果JVM在反序列化对象的过程中找不到该类，则抛出一个 ClassNotFoundException 异常。
+`readObject()` 方法中的 `try/catch` 代码块尝试捕获 `ClassNotFoundException` 异常。对于 JVM 可以反序列化对象，它必须是能够找到字节码的类。如果JVM在反序列化对象的过程中找不到该类，则抛出一个 `ClassNotFoundException` 异常。
 
-注意，readObject() 方法的返回值被转化成 Employee 引用。
+注意，`readObject()` 方法的返回值被转化成 `Employee` 引用。
 
-当对象被序列化时，属性 SSN 的值为 111222333，但是因为该属性是短暂的，该值没有被发送到输出流。所以反序列化后 Employee 对象的 SSN 属性为 0。
+当对象被序列化时，属性 `SSN` 的值为 `111222333`，但是因为该属性是短暂的，该值没有被发送到输出流。所以反序列化后 `Employee` 对象的 `SSN` 属性为 `0`。
+
+
+#### 源码获取
+
+实例源码已经托管到如下地址：
+
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/advance/serialization" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/advance/serialization</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/advance/serialization" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/advance/serialization</a>
 
 
 
 ----------
 
-上一篇：<a href="/training/java-generic.html">泛型</a>
+上一篇：[泛型](/training/java-generic.html "泛型 - 高级教程 - Java入门 - 免费课程 - 光束云 - work100.net")
 
-下一篇：<a href="/training/java-networking.html">网络编程</a>
+下一篇：[网络编程](/training/java-networking.html "网络编程 - 高级教程 - Java入门 - 免费课程 - 光束云 - work100.net")

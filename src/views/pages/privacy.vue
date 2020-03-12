@@ -7,7 +7,11 @@
         </Sticky>
       </el-aside>
       <el-main>
-        <LeftMenu v-if="device==='mobile'" />
+        <right-panel v-if="device==='mobile'">
+          <div class="drawer-container">
+            <LeftMenu />
+          </div>
+        </right-panel>
         <privacy_zh_CN class="markdown-body" />
       </el-main>
     </el-container>
@@ -19,10 +23,12 @@ import { mapState } from 'vuex'
 import Sticky from '@/components/Sticky'
 import LeftMenu from './components/LeftMenu_privacy'
 import privacy_zh_CN from '@/assets/md/pages/privacy_zh_CN.md'
+import RightPanel from '@/components/RightPanel'
 
 export default {
   name: 'Privacy',
   components: {
+    RightPanel,
     Sticky,
     LeftMenu,
     privacy_zh_CN

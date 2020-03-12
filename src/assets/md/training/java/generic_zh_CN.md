@@ -1,7 +1,18 @@
 
 # <a id="泛型" style="padding-top: 60px;">泛型</a>
 
-Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。
+序号|文内章节|视频
+:---:|:---|:---
+1|[概述](#概述)|
+2|[泛型方法](#泛型方法)|
+3|[泛型类](#泛型类)|
+4|[类型通配符](#类型通配符)|
+
+请参照如上`章节导航`进行阅读
+
+## <a id="概述" style="padding-top: 60px;">1.概述</a>
+
+Java 泛型（`generics`）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。
 泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。
 
 > 假定我们有这样一个需求：写一个排序方法，能够对整型数组、字符串数组甚至其他任何类型的数组进行排序，该如何实现？
@@ -10,19 +21,16 @@ Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了�
 
 
 
-## <a id="泛型方法" style="padding-top: 60px;">泛型方法</a>
+## <a id="泛型方法" style="padding-top: 60px;">2.泛型方法</a>
 
 你可以写一个泛型方法，该方法在调用时可以接收不同类型的参数。根据传递给泛型方法的参数类型，编译器适当地处理每一个方法调用。
 
 下面是定义泛型方法的规则：
 
-- 所有泛型方法声明都有一个类型参数声明部分（由尖括号分隔），该类型参数声明部分在方法返回类型之前（在下面例子中的\<E\>）
-
+- 所有泛型方法声明都有一个类型参数声明部分（由尖括号分隔），该类型参数声明部分在方法返回类型之前（在下面例子中的 `<E>`）
 - 每一个类型参数声明部分包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符
-
 - 类型参数能被用来声明返回值类型，并且能作为泛型方法得到的实际参数类型的占位符
-
-- 泛型方法体的声明和其他方法一样。注意类型参数只能代表引用型类型，不能是原始类型（像int,double,char的等）
+- 泛型方法体的声明和其他方法一样。注意类型参数只能代表引用型类型，不能是原始类型（像 `int`,`double`,`char` 的等）
 
 
 ### 实例
@@ -33,7 +41,7 @@ Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了�
 public class GenericMethodTest
 {
    // 泛型方法 printArray                         
-   public static < E > void printArray( E[] inputArray )
+   public static <E> void printArray( E[] inputArray )
    {
       // 输出数组元素            
          for ( E element : inputArray ){        
@@ -42,7 +50,7 @@ public class GenericMethodTest
          System.out.println();
     }
  
-    public static void main( String args[] )
+    public static void main( String[] args )
     {
         // 创建不同类型数组： Integer, Double 和 Character
         Integer[] intArray = { 1, 2, 3, 4, 5 };
@@ -76,13 +84,13 @@ H E L L O
 
 有界的类型参数:
 
-可能有时候，你会想限制那些被允许传递到一个类型参数的类型种类范围。例如，一个操作数字的方法可能只希望接受Number或者Number子类的实例。这就是有界类型参数的目的。
+可能有时候，你会想限制那些被允许传递到一个类型参数的类型种类范围。例如，一个操作数字的方法可能只希望接受 `Number` 或者 `Number` 子类的实例。这就是有界类型参数的目的。
 
-要声明一个有界的类型参数，首先列出类型参数的名称，后跟extends关键字，最后紧跟它的上界。
+要声明一个有界的类型参数，首先列出类型参数的名称，后跟 `extends` 关键字，最后紧跟它的上界。
 
 ### 实例
 
-下面的例子演示了"extends"如何使用在一般意义上的意思"extends"（类）或者"implements"（接口）。该例子中的泛型方法返回三个可比较对象的最大值。
+下面的例子演示了 "`extends`" 如何使用在一般意义上的意思 "`extends`"（类）或者"`implements`"（接口）。该例子中的泛型方法返回三个可比较对象的最大值。
 
 ```java
 public class MaximumTest
@@ -99,7 +107,7 @@ public class MaximumTest
       }
       return max; // 返回最大对象
    }
-   public static void main( String args[] )
+   public static void main( String[] args )
    {
       System.out.printf( "%d, %d 和 %d 中最大的数为 %d\n\n",
                    3, 4, 5, maximum( 3, 4, 5 ) );
@@ -124,7 +132,7 @@ pear, apple 和 orange 中最大的数为 pear
 ```
 
 
-## <a id="泛型类" style="padding-top: 60px;">泛型类</a>
+## <a id="泛型类" style="padding-top: 60px;">3.泛型类</a>
 
 泛型类的声明和非泛型类的声明类似，除了在类名后面添加了类型参数声明部分。
 
@@ -169,9 +177,9 @@ public class Box<T> {
 ```
 
 
-## <a id="类型通配符" style="padding-top: 60px;">类型通配符</a>
+## <a id="类型通配符" style="padding-top: 60px;">4.类型通配符</a>
 
-1、类型通配符一般是使用?代替具体的类型参数。例如 List\<?\> 在逻辑上是List\<String\>,List\<Integer\> 等所有List\<具体类型实参\>的父类。
+1).类型通配符一般是使用 `?` 代替具体的类型参数。例如 `List<?>` 在逻辑上是 `Lis<String>`, `List<Integer>` 等所有 `List<具体类型实参>` 的父类。
 
 ```java
 import java.util.*;
@@ -207,9 +215,9 @@ data :18
 data :314
 ```
 
-解析： 因为getData()方法的参数是List类型的，所以name，age，number都可以作为这个方法的实参，这就是通配符的作用
+解析： 因为 `getData()` 方法的参数是 `List` 类型的，所以 `name`，`age`，`number` 都可以作为这个方法的实参，这就是通配符的作用
 
-2、类型通配符上限通过形如List来定义，如此定义就是通配符泛型值接受Number及其下层子类类型。
+2).类型通配符上限通过形如 `List` 来定义，如此定义就是通配符泛型值接受 `Number` 及其下层子类类型。
 
 ```java
 import java.util.*;
@@ -248,13 +256,22 @@ data :18
 data :314
 ```
 
-解析： 在(//1)处会出现错误，因为getUperNumber()方法中的参数已经限定了参数泛型上限为Number，所以泛型为String是不在这个范围之内，所以会报错
+解析： 在(`//1`)处会出现错误，因为 `getUperNumber()` 方法中的参数已经限定了参数泛型上限为 `Number`，所以泛型为 `String` 是不在这个范围之内，所以会报错
 
-3、类型通配符下限通过形如 List<? super Number>来定义，表示类型只能接受Number及其三层父类类型，如 Object 类型的实例。
+3).类型通配符下限通过形如 `List<? super Number>`来定义，表示类型只能接受 `Number` 及其三层父类类型，如 `Object` 类型的实例。
+
+
+#### 源码获取
+
+实例源码已经托管到如下地址：
+
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/advance/generic" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/advance/generic</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/advance/generic" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/advance/generic</a>
 
 
 ----------
 
-上一篇：<a href="/training/java-collection.html">集合</a>
+上一篇：[集合](/training/java-collection.html "集合 - 高级教程 - Java入门 - 免费课程 - 光束云 - work100.net")
 
-下一篇：<a href="/training/java-serialization.html">序列化</a>
+下一篇：[序列化](/training/java-serialization.html "序列化 - 高级教程 - Java入门 - 免费课程 - 光束云 - work100.net")

@@ -24,7 +24,6 @@
 
 ## <a id="解决方案" href="/solutions/index.html" style="padding-top: 60px;">解决方案</a>
 
-
 - [物联网](/solutions/index.html#物联网)
 
 - [工业自动化](/solutions/index.html#工业自动化)
@@ -33,16 +32,29 @@
 
 ## <a id="免费课程" style="padding-top: 60px;">免费课程</a>
 
-- [Java 教程](/training/java)
+- [开课导读](/training/index)
+
+- [Java入门](/training/java)
   
     - [Java 语言基础](/training/java-intro.html)
   
     - [Java 面向对象](/training/java-inheritance.html)
   
     - [Java 高级教程](/training/java-data-structure.html)
+    
+- [Java单体应用](/training/monolithic)
 
+    - [Markdown](/training/monolithic-markdown.html)
+  
+    - [开发工具](/training/monolithic-tools-intellij-idea.html)
+  
+    - [架构模式](/training/monolithic-architecture-3level.html)
 
 - [微服务](/training/micro-services)
+
+- [物联网平台搭建](/training/iot)
+
+- [SaaS云服务搭建](/training/saas)
 
 .
 
@@ -76,6 +88,10 @@
 .    
 
 ## <a id="网站地图" href="/site-map.html" style="padding-top: 60px;">网站地图</a>
+
+- [sitemap.xml](/sitemap.xml)
+
+- [sitemap.html](/sitemap.html)
 
 .
 

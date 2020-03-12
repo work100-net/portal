@@ -1,6 +1,18 @@
 
 # <a id="抽象类" style="padding-top: 60px;">抽象类</a>
 
+序号|文内章节|视频
+:---:|:---|:---
+1|[概述](#概述)|
+2|[Java抽象类](#Java抽象类)|
+3|[继承抽象类](#继承抽象类)|
+4|[抽象方法](#抽象方法)|
+5|[总结](#总结)|
+
+请参照如上`章节导航`进行阅读
+
+## <a id="概述" style="padding-top: 60px;">1.概述</a>
+
 在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
 
 抽象类除了不能实例化对象之外，类的其它功能依然存在，成员变量、成员方法和构造方法的访问方式和普通类一样。
@@ -12,9 +24,9 @@
 在Java中抽象类表示的是一种继承关系，一个类只能继承一个抽象类，而一个类却可以实现多个接口。
 
 
-## <a id="Java抽象类" style="padding-top: 60px;">Java抽象类</a>
+## <a id="Java抽象类" style="padding-top: 60px;">2.Java抽象类</a>
 
-在Java语言中使用abstract class来定义抽象类。如下实例：
+在Java语言中使用 `abstract class` 来定义抽象类。如下实例：
 
 ```java
 /* 文件名 : Employee.java */
@@ -63,7 +75,7 @@ public abstract class Employee
 }
 ```
 
-注意到该 Employee 类没有什么不同，尽管该类是抽象类，但是它仍然有 3 个成员变量，7 个成员方法和 1 个构造方法。 现在如果你尝试如下的例子：
+注意到该 `Employee` 类没有什么不同，尽管该类是抽象类，但是它仍然有 `3` 个成员变量，`7` 个成员方法和 `1` 个构造方法。 现在如果你尝试如下的例子：
 
 
 ```java
@@ -81,7 +93,7 @@ public class AbstractDemo
 }
 ```
 
-当你尝试编译AbstractDemo类时，会产生如下错误：
+当你尝试编译 `AbstractDemo` 类时，会产生如下错误：
 
 ```java
 Employee.java:46: Employee is abstract; cannot be instantiated
@@ -91,9 +103,9 @@ Employee.java:46: Employee is abstract; cannot be instantiated
 ```
 
 
-## <a id="继承抽象类" style="padding-top: 60px;">继承抽象类</a>
+## <a id="继承抽象类" style="padding-top: 60px;">3.继承抽象类</a>
 
-我们能通过一般的方法继承Employee类：
+我们能通过一般的方法继承 `Employee` 类：
 
 ```java
 /* 文件名 : Salary.java */
@@ -131,7 +143,7 @@ public class Salary extends Employee
 }
 ```
 
-尽管我们不能实例化一个 Employee 类的对象，但是如果我们实例化一个 Salary 类对象，该对象将从 Employee 类继承 7 个成员方法，且通过该方法可以设置或获取三个成员变量。
+尽管我们不能实例化一个 `Employee` 类的对象，但是如果我们实例化一个 `Salary` 类对象，该对象将从 `Employee` 类继承 `7` 个成员方法，且通过该方法可以设置或获取三个成员变量。
 
 
 ```java
@@ -168,11 +180,11 @@ Mailing check to John Adams with salary 2400.
 ```
 
 
-## <a id="抽象方法" style="padding-top: 60px;">抽象方法</a>
+## <a id="抽象方法" style="padding-top: 60px;">4.抽象方法</a>
 
 如果你想设计这样一个类，该类包含一个特别的成员方法，该方法的具体实现由它的子类确定，那么你可以在父类中声明该方法为抽象方法。
 
-Abstract 关键字同样可以用来声明抽象方法，抽象方法只包含一个方法名，而没有方法体。
+`Abstract` 关键字同样可以用来声明抽象方法，抽象方法只包含一个方法名，而没有方法体。
 
 抽象方法没有定义，方法名后面直接跟一个分号，而不是花括号。
 
@@ -192,12 +204,11 @@ public abstract class Employee
 声明抽象方法会造成以下两个结果：
 
 - 如果一个类包含抽象方法，那么该类必须是抽象类
-
 - 任何子类必须重写父类的抽象方法，或者声明自身为抽象类
 
 继承抽象方法的子类必须重写该方法。否则，该子类也必须声明为抽象类。最终，必须有子类实现该抽象方法，否则，从最初的父类到最终的子类都不能用来实例化对象。
 
-如果Salary类继承了Employee类，那么它必须实现computePay()方法：
+如果 `Salary` 类继承了 `Employee` 类，那么它必须实现 `computePay()` 方法：
 
 ```java
 /* 文件名 : Salary.java */
@@ -216,23 +227,28 @@ public class Salary extends Employee
 ```
 
 
-## <a id="抽象类总结规定" style="padding-top: 60px;">抽象类总结规定</a>
+## <a id="总结" style="padding-top: 60px;">5.总结</a>
 
-1. 抽象类不能被实例化(初学者很容易犯的错)，如果被实例化，就会报错，编译无法通过。只有抽象类的非抽象子类可以创建对象。
+- 抽象类不能被实例化(初学者很容易犯的错)，如果被实例化，就会报错，编译无法通过。只有抽象类的非抽象子类可以创建对象。
+- 抽象类中不一定包含抽象方法，但是有抽象方法的类必定是抽象类。
+- 抽象类中的抽象方法只是声明，不包含方法体，就是不给出方法的具体实现也就是方法的具体功能。
+- 构造方法，类方法（用 `static` 修饰的方法）不能声明为抽象方法。
+- 抽象类的子类必须给出抽象类中的抽象方法的具体实现，除非该子类也是抽象类。
 
-2. 抽象类中不一定包含抽象方法，但是有抽象方法的类必定是抽象类。
 
-3. 抽象类中的抽象方法只是声明，不包含方法体，就是不给出方法的具体实现也就是方法的具体功能。
 
-4. 构造方法，类方法（用 static 修饰的方法）不能声明为抽象方法。
+#### 源码获取
 
-5. 抽象类的子类必须给出抽象类中的抽象方法的具体实现，除非该子类也是抽象类。
+实例源码已经托管到如下地址：
 
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/abstractclass" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/abstractclass</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/abstractclass" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/abstractclass</a>
 
 
 
 ----------
 
-上一篇：<a href="/training/java-polymorphism.html">多态</a>
+上一篇：[多态](/training/java-polymorphism.html "多态 - 面向对象 - Java入门 - 免费课程 - 光束云 - work100.net")
 
-下一篇：<a href="/training/java-encapsulation.html">封装</a>
+下一篇：[封装](/training/java-encapsulation.html "封装 - 面向对象 - Java入门 - 免费课程 - 光束云 - work100.net")

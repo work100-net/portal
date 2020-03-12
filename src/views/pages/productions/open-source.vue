@@ -7,7 +7,11 @@
         </Sticky>
       </el-aside>
       <el-main>
-        <LeftMenu v-if="device==='mobile'" />
+        <right-panel v-if="device==='mobile'">
+          <div class="drawer-container">
+            <LeftMenu v-if="device==='mobile'" />
+          </div>
+        </right-panel>
         <open_source_zh_CN class="markdown-body" />
       </el-main>
     </el-container>
@@ -19,10 +23,12 @@ import { mapState } from 'vuex'
 import Sticky from '@/components/Sticky'
 import LeftMenu from './components/LeftMenu_open_source'
 import open_source_zh_CN from '@/assets/md/productions/open_source_zh_CN.md'
+import RightPanel from '@/components/RightPanel'
 
 export default {
   name: 'ProductionsOpenSource',
   components: {
+    RightPanel,
     Sticky,
     LeftMenu,
     open_source_zh_CN

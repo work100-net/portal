@@ -1,5 +1,6 @@
 <template>
   <div class="app-container">
+    <!--
     <div v-if="device!=='mobile'" class="kv">
       <el-carousel :interval="5000">
         <el-carousel-item v-for="item in kvs" :key="item.title">
@@ -9,18 +10,23 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+    -->
 
     <el-container>
       <el-aside v-if="device!=='mobile'" width="120px" style="background: #fff;" />
-      <el-main style="background: #fdfdfd;">
-        <notice_zh_CN v-if="device==='mobile'" class="markdown-body" />
+      <el-main style="background: #fdfdfd;border-right: 1px solid #e0e0e0;">
+        <el-header v-if="device==='mobile'" style="background: #ececec;line-height: 60px;font-weight: bold; font-size: 24px;">免费课程合集</el-header>
+        <RightMenu v-if="device==='mobile'" />
+        <home_20200227_training_java_zh_CN class="markdown-body" />
+        <home_20200208_training_video_source_zh_CN class="markdown-body" />
         <home_20191121_portal_open_zh_CN class="markdown-body" />
         <home_20191120_portal_open_zh_CN class="markdown-body" />
         <home_20191015_prod_cloud_iot_zh_CN class="markdown-body" />
         <contact_zh_CN class="markdown-body" />
       </el-main>
-      <el-aside v-if="device!=='mobile'" width="380px" style="background: #f5f6f9;padding-left: 20px;">
-        <notice_zh_CN />
+      <el-aside v-if="device!=='mobile'" width="280px">
+        <el-header style="background: #ececec;line-height: 60px;font-weight: bold; font-size: 24px;">免费课程合集</el-header>
+        <RightMenu />
       </el-aside>
       <el-aside v-if="device!=='mobile'" width="120px" style="background: #fff;" />
     </el-container>
@@ -29,19 +35,23 @@
 
 <script>
 import { mapState } from 'vuex'
-import notice_zh_CN from '@/assets/md/pages/notice_zh_CN.md'
+import RightMenu from '../training/components/LeftMenu'
 import home_20191121_portal_open_zh_CN from '@/assets/md/pages/home_20191121_portal_open_source_zh_CN.md'
 import home_20191120_portal_open_zh_CN from '@/assets/md/pages/home_20191120_portal_open_zh_CN.md'
 import home_20191015_prod_cloud_iot_zh_CN from '@/assets/md/pages/home_20191015_prod_cloud_iot_zh_CN.md'
+import home_20200208_training_video_source_zh_CN from '@/assets/md/pages/home_20200208_training_video_source_zh_CN.md'
+import home_20200227_training_java_zh_CN from '@/assets/md/pages/home_20200227_training_java_zh_CN.md'
 import contact_zh_CN from '@/assets/md/about/contact_zh_CN.md'
 
 export default {
   name: 'Home',
   components: {
-    notice_zh_CN,
+    RightMenu,
     home_20191121_portal_open_zh_CN,
     home_20191120_portal_open_zh_CN,
     home_20191015_prod_cloud_iot_zh_CN,
+    home_20200227_training_java_zh_CN,
+    home_20200208_training_video_source_zh_CN,
     contact_zh_CN
   },
   data() {

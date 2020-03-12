@@ -7,8 +7,12 @@
         </Sticky>
       </el-aside>
       <el-main>
-        <LeftMenu v-if="device==='mobile'" />
-        <index_zh_CN class="markdown-body" />
+        <right-panel v-if="device==='mobile'">
+          <div class="drawer-container">
+            <LeftMenu />
+          </div>
+        </right-panel>
+        <tool_json_formatter_zh_CN class="markdown-body" />
 
         <el-form label-position="top" style="padding-left: 15px;">
           <el-form-item label="输入数据">
@@ -42,7 +46,8 @@ import { mapState } from 'vuex'
 import JsonViewer from 'vue-json-viewer'
 import Sticky from '@/components/Sticky'
 import LeftMenu from './components/LeftMenu'
-import index_zh_CN from '@/assets/md/tools/json-formatter/index_zh_CN.md'
+import tool_json_formatter_zh_CN from '@/assets/md/tools/tool_json_formatter_zh_CN.md'
+import RightPanel from '@/components/RightPanel'
 
 const defaultJsonData = {
   total: 25,
@@ -98,8 +103,8 @@ const defaultJsonData = {
 }
 
 export default {
-  name: 'ToolsJsonFormatter',
-  components: { JsonViewer, Sticky, LeftMenu, index_zh_CN },
+  name: 'ToolsToolJsonFormatter',
+  components: { RightPanel, JsonViewer, Sticky, LeftMenu, tool_json_formatter_zh_CN },
   data() {
     return {
       strJsonData: '',

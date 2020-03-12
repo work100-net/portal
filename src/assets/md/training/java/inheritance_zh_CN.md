@@ -1,7 +1,17 @@
 
 # <a id="继承" style="padding-top: 60px;">继承</a>
 
-## <a id="继承的概念" style="padding-top: 60px;">继承的概念</a>
+序号|文内章节|视频
+:---:|:---|:---
+1|[概述](#概述)|
+2|[继承的特性](#继承的特性)|
+3|[继承关键字](#继承关键字)|
+4|[构造器](#构造器)|
+
+请参照如上`章节导航`进行阅读
+
+
+## <a id="概述" style="padding-top: 60px;">1.概述</a>
 
 继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。
 
@@ -22,7 +32,7 @@
 
 ### 类的继承格式
 
-在 Java 中通过 extends 关键字可以申明一个类是从另外一个类继承而来的，一般形式如下：
+在 Java 中通过 `extends` 关键字可以申明一个类是从另外一个类继承而来的，一般形式如下：
 
 ```java
 class 父类 {
@@ -38,9 +48,8 @@ class 子类 extends 父类 {
 
 开发动物类，其中动物分别为企鹅以及老鼠，要求如下：
 
-- 企鹅：属性（姓名，id），方法（吃，睡，自我介绍）
-
-- 老鼠：属性（姓名，id），方法（吃，睡，自我介绍）
+- **企鹅**：`属性`(姓名，id)，`方法`(吃，睡，自我介绍)
+- **老鼠**：`属性`(姓名，id)，`方法`(吃，睡，自我介绍)
 
 **企鹅类：**
 
@@ -59,7 +68,7 @@ public class Penguin {
         System.out.println(name+"正在睡");
     }
     public void introduction() { 
-        System.out.println("大家好！我是"         + id + "号" + name + "."); 
+        System.out.println("大家好！我是" + id + "号" + name + "."); 
     } 
 }
 ```
@@ -81,7 +90,7 @@ public class Mouse {
         System.out.println(name+"正在睡");
     }
     public void introduction() { 
-        System.out.println("大家好！我是"         + id + "号" + name + "."); 
+        System.out.println("大家好！我是" + id + "号" + name + "."); 
     } 
 }
 ```
@@ -105,12 +114,12 @@ public class Animal {
         System.out.println(name+"正在睡");
     }
     public void introduction() { 
-        System.out.println("大家好！我是"         + id + "号" + name + "."); 
+        System.out.println("大家好！我是" + id + "号" + name + "."); 
     } 
 }
 ```
 
-这个Animal类就可以作为一个父类，然后企鹅类和老鼠类继承这个类之后，就具有父类当中的属性和方法，子类就不会存在重复的代码，维护性也提高，代码也更加简洁，提高代码的复用性（复用性主要是可以多次使用，不用再多次写同样的代码） 继承之后的代码：
+这个 `Animal` 类就可以作为一个父类，然后企鹅类和老鼠类继承这个类之后，就具有父类当中的属性和方法，子类就不会存在重复的代码，维护性也提高，代码也更加简洁，提高代码的复用性（复用性主要是可以多次使用，不用再多次写同样的代码） 继承之后的代码：
 
 **企鹅类：**
 
@@ -139,26 +148,22 @@ public class Mouse extends Animal {
 <img src="http://contents.work100.net/images/training/java/inheritance/img2.jpg" style="max-width: 98%" />
 
 
-## <a id="继承的特性" style="padding-top: 60px;">继承的特性</a>
+## <a id="继承的特性" style="padding-top: 60px;">2.继承的特性</a>
 
-- 子类拥有父类非 private 的属性、方法
-
+- 子类拥有父类非 `private` 的属性、方法
 - 子类可以拥有自己的属性和方法，即子类可以对父类进行扩展
-
 - 子类可以用自己的方式实现父类的方法
-
-- Java 的继承是单继承，但是可以多重继承，单继承就是一个子类只能继承一个父类，多重继承就是，例如 A 类继承 B 类，B 类继承 C 类，所以按照关系就是 C 类是 B 类的父类，B 类是 A 类的父类，这是 Java 继承区别于 C++ 继承的一个特性
-
+- Java 的继承是单继承，但是可以多重继承，单继承就是一个子类只能继承一个父类，多重继承就是，例如 `A` 类继承 `B` 类，`B` 类继承 `C` 类，所以按照关系就是 `C` 类是 `B` 类的父类，`B` 类是 `A` 类的父类，这是 Java 继承区别于 C++ 继承的一个特性
 - 提高了类之间的耦合性（继承的缺点，耦合度高就会造成代码之间的联系越紧密，代码独立性越差）
 
 
-## <a id="继承关键字" style="padding-top: 60px;">继承关键字</a>
+## <a id="继承关键字" style="padding-top: 60px;">3.继承关键字</a>
 
-继承可以使用 extends 和 implements 这两个关键字来实现继承，而且所有的类都是继承于 java.lang.Object，当一个类没有继承的两个关键字，则默认继承object（这个类在 java.lang 包中，所以不需要 import）祖先类。
+继承可以使用 `extends` 和 `implements` 这两个关键字来实现继承，而且所有的类都是继承于 `java.lang.Object`，当一个类没有继承的两个关键字，则默认继承 `object`（这个类在 `java.lang` 包中，所以不需要 `import`）祖先类。
 
 ### extends关键字
 
-在 Java 中，类的继承是单一继承，也就是说，一个子类只能拥有一个父类，所以 extends 只能继承一个类。
+在 Java 中，类的继承是单一继承，也就是说，一个子类只能拥有一个父类，所以 `extends` 只能继承一个类。
 
 ```java
 public class Animal { 
@@ -181,7 +186,7 @@ public class Penguin  extends  Animal {
 
 ### implements关键字
 
-使用 implements 关键字可以变相的使java具有多继承的特性，使用范围为类继承接口的情况，可以同时继承多个接口（接口跟接口之间采用逗号分隔）。
+使用 `implements` 关键字可以变相的使 Java 具有多继承的特性，使用范围为类继承接口的情况，可以同时继承多个接口（接口跟接口之间采用逗号分隔）。
 
 ```java
 public interface A {
@@ -199,9 +204,9 @@ public class C implements A,B {
 
 ### super 与 this 关键字
 
-super关键字：我们可以通过super关键字来实现对父类成员的访问，用来引用当前对象的父类。
+`super` 关键字：我们可以通过 `super` 关键字来实现对父类成员的访问，用来引用当前对象的父类。
 
-this关键字：指向自己的引用。
+`this` 关键字：指向自己的引用。
 
 ```java
 class Animal {
@@ -241,7 +246,7 @@ animal : eat
 
 ### final关键字
 
-final 关键字声明类可以把类定义为不能继承的，即最终类；或者用于修饰方法，该方法不能被子类重写：
+`final` 关键字声明类可以把类定义为不能继承的，即最终类；或者用于修饰方法，该方法不能被子类重写：
 
 - 声明类：
 
@@ -260,15 +265,15 @@ final class 类名 {
 }
 ```
 
-> 注:实例变量也可以被定义为 final，被定义为 final 的变量不能被修改。被声明为 final 类的方法自动地声明为 final，但是实例变量并不是 final
+> 注:实例变量也可以被定义为 `final`，被定义为 `final` 的变量不能被修改。被声明为 `final` 类的方法自动地声明为 `final`，但是实例变量并不是 `final`
 
 
 
-## <a id="构造器" style="padding-top: 60px;">构造器</a>
+## <a id="构造器" style="padding-top: 60px;">4.构造器</a>
 
-子类是不继承父类的构造器（构造方法或者构造函数）的，它只是调用（隐式或显式）。如果父类的构造器带有参数，则必须在子类的构造器中显式地通过 super 关键字调用父类的构造器并配以适当的参数列表。
+子类是不继承父类的构造器（构造方法或者构造函数）的，它只是调用（隐式或显式）。如果父类的构造器带有参数，则必须在子类的构造器中显式地通过 `super` 关键字调用父类的构造器并配以适当的参数列表。
 
-如果父类构造器没有参数，则在子类的构造器中不需要使用 super 关键字调用父类构造器，系统会自动调用父类的无参构造器。
+如果父类构造器没有参数，则在子类的构造器中不需要使用 `super` 关键字调用父类构造器，系统会自动调用父类的无参构造器。
 
 实例
 
@@ -312,7 +317,7 @@ class SubClass2 extends SuperClass{
   }
 }
 public class TestSuperSub{
-  public static void main (String args[]){
+  public static void main (String[] args){
     System.out.println("------SubClass 类继承------");
     SubClass sc1 = new SubClass();
     SubClass sc2 = new SubClass(100); 
@@ -338,6 +343,15 @@ SuperClass()
 SubClass2(int n):200
 ```
 
+
+#### 源码获取
+
+实例源码已经托管到如下地址：
+
+- <a href="https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/inheritance" target="_blank">https://github.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/inheritance</a>
+
+- <a href="https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/inheritance" target="_blank">https://gitee.com/work100-net/training-stage1/tree/master/src/main/java/net/work100/training/stage1/oo/inheritance</a>
+
 ----------
 
-下一篇：<a href="/training/java-override-overload.html">重写与重载</a>
+下一篇：[重写与重载](/training/java-override-overload.html "重写与重载 - 面向对象 - Java入门 - 免费课程 - 光束云 - work100.net")

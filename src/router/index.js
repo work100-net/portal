@@ -140,10 +140,17 @@ export const constantRoutes = [
   {
     path: '/training',
     component: Layout,
-    redirect: '/training/java',
+    redirect: '/training/index',
     meta: { title: 'training' },
     children: [
-      // Java
+      // 开篇
+      {
+        path: 'index',
+        component: () => import('@/views/training/index'),
+        name: 'TrainingIndex',
+        meta: { title: 'trainingIndex' }
+      },
+      // Java 入门
       {
         path: 'java',
         component: () => import('@/views/training/java/index'),
@@ -419,7 +426,7 @@ export const constantRoutes = [
         meta: { title: 'trainingJavaDocumentation', activeMenu: '/training/java' },
         hidden: true
       },
-      // 微服务
+      // Java微服务
       {
         path: 'micro-services',
         component: () => import('@/views/training/micro-services/index'),
@@ -429,26 +436,62 @@ export const constantRoutes = [
     ]
   },
 
-  // 常用工具
+  // 代码和工具
   {
     path: '/tools',
     component: Layout,
-    redirect: '/tools/code.html',
+    redirect: '/tools/code-java/datetime-utils.html',
     meta: { title: 'tools' },
     children: [
-      // Code
+      // 代码片段
       {
         path: 'code.html',
-        component: () => import('@/views/tools/code'),
+        redirect: '/tools/code-java/datetime-utils.html',
         name: 'ToolsCode',
         meta: { title: 'toolsCode' }
       },
-      // json-formatter
+      // Java代码
       {
-        path: 'json-formatter.html',
-        component: () => import('@/views/tools/json-formatter'),
-        name: 'ToolsJsonFormatter',
-        meta: { title: 'toolsJsonFormatter' }
+        path: 'code-java/datetime-utils.html',
+        component: () => import('@/views/tools/code-java/datetime-utils'),
+        name: 'ToolsCodeJavaDateTimeUtils',
+        meta: { title: 'toolsCodeJavaDateTimeUtils', activeMenu: '/tools/code.html' },
+        hidden: true
+      },
+      {
+        path: 'code-java/cookie-utils.html',
+        component: () => import('@/views/tools/code-java/cookie-utils'),
+        name: 'ToolsCodeJavaCookieUtils',
+        meta: { title: 'toolsCodeJavaCookieUtils', activeMenu: '/tools/code.html' },
+        hidden: true
+      },
+      {
+        path: 'code-java/encryption-utils.html',
+        component: () => import('@/views/tools/code-java/encryption-utils'),
+        name: 'ToolsCodeJavaEncryptionUtils',
+        meta: { title: 'toolsCodeJavaEncryptionUtils', activeMenu: '/tools/code.html' },
+        hidden: true
+      },
+      {
+        path: 'code-java/mapper-utils.html',
+        component: () => import('@/views/tools/code-java/mapper-utils'),
+        name: 'ToolsCodeJavaMapperUtils',
+        meta: { title: 'toolsCodeJavaMapperUtils', activeMenu: '/tools/code.html' },
+        hidden: true
+      },
+      // 常用工具
+      {
+        path: 'tool.html',
+        redirect: '/tools/tool-json-formatter.html',
+        name: 'ToolsTool',
+        meta: { title: 'toolsTool' }
+      },
+      {
+        path: 'tool-json-formatter.html',
+        component: () => import('@/views/tools/tool-json-formatter'),
+        name: 'ToolsToolJsonFormatter',
+        meta: { title: 'toolsToolJsonFormatter', activeMenu: '/tools/tool.html' },
+        hidden: true
       }
     ]
   },

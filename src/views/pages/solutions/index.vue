@@ -7,7 +7,11 @@
         </Sticky>
       </el-aside>
       <el-main>
-        <LeftMenu v-if="device==='mobile'" />
+        <right-panel v-if="device==='mobile'">
+          <div class="drawer-container">
+            <LeftMenu v-if="device==='mobile'" />
+          </div>
+        </right-panel>
         <index_zh_CN class="markdown-body" />
         <iot_zh_CN class="markdown-body" />
         <automated_industry_zh_CN class="markdown-body" />
@@ -23,10 +27,12 @@ import LeftMenu from './components/LeftMenu'
 import index_zh_CN from '@/assets/md/solutions/index_zh_CN.md'
 import iot_zh_CN from '@/assets/md/solutions/iot_zh_CN.md'
 import automated_industry_zh_CN from '@/assets/md/solutions/automated_industry_zh_CN.md'
+import RightPanel from '@/components/RightPanel'
 
 export default {
   name: 'SolutionsIndex',
   components: {
+    RightPanel,
     Sticky,
     LeftMenu,
     index_zh_CN,
